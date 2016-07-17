@@ -1,0 +1,44 @@
+/* VIEW TOPICS */
+.viewTopicsBox {
+  width: 90%;
+  padding: 10px 0px 0px 0px;
+  text-align: center;
+}
+
+.topicSelect .form-control {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.topicCallsTable {
+  margin-top: 15px;
+}
+
+.topicCallsTable .callCell {
+  font-size: 18px;
+}
+
+.topicCallsTable .callCell .idBadge {
+  height: 50px;
+  padding-top: 15px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.0;
+}
+
+.topicCallsTable .callCell .idBadge .idBadgeNumbers {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.topicCallsTable .callCell .glyphControls .glyphicon {
+  padding-right: 15px;
+  font-size: 30px;
+  color: #333;
+  cursor: pointer;
+}
+
+.topicCallsTable .callCell .glyphControls .glyphicon:hover {
+  color: #4183c4;
+}
+/* END VIEW TOPICS */

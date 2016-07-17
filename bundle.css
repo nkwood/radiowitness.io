@@ -1,0 +1,246 @@
+/* BASE */
+body {
+  background: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+  margin: 0 0 15px;
+  padding: 0;
+}
+
+h1 {
+  border-bottom: 1px solid #ddd;
+}
+
+.fullWidth {
+  width: 100%;
+}
+/* END BASE */
+/* BAD BROWSER */
+.badBrowserBox {
+  width: 60%;
+  padding: 30px 0px 0px 0px;
+}
+
+.badBrowserText {
+
+}
+/* END BAD BROWSER */
+/* LOGIN */
+.loginBox {
+  width: 40%;
+  padding: 30px 0px 0px 0px;
+}
+/* END LOGIN */
+/* VIEW CITIES */
+.citiesBox {
+  width: 50%;
+  padding: 30px 0px 0px 0px;
+  text-align: right;
+}
+
+.cityListItemPlus {
+  visibility: hidden;
+  text-align: left;
+}
+
+.cityListItemLast {
+  border-bottom: 4px solid #000;
+}
+
+.cityListItemLast .cityListItemPlus {
+  visibility: visible;
+}
+
+/* F12 */
+#testDiv {
+  position: absolute;
+  visibility: hidden;
+  height: auto;
+  width: auto;
+  white-space: nowrap;
+}
+/* END F12 */
+/* END VIEW CITIES */
+/* QUERY CITY */
+.queryCityBox {
+  width: 80%;
+  padding: 20px 0px 0px 0px;
+  text-align: center;
+}
+
+.queryFormHeadings {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.queryForm > * {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+.dateSelectBox, .timeSelectBox {
+ overflow: hidden;
+}
+/* END QUERY CITY */
+/* SIFT */
+.siftBox {
+  width: 95%;
+  padding: 0px 0px 0px 0px;
+  text-align: center;
+}
+
+.siftBoxHeading .timeSpanSpan {
+  margin-left: 10px;
+  font-size: 26px;
+}
+
+.callsGridHeading {
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  font-size: 20px;
+}
+
+.callsGridHeading .form-group .form-control {
+  background-color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.callsGrid .callsGridRow {
+  padding: 1px;
+}
+
+.callsGridCol {
+  height: 50px;
+  padding-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.callsGridCol .glyphicon {
+  font-size: 30px;
+}
+
+.callsGridCol .callDuration {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.callsGridCol .callDurationS {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* INTRO MODAL */
+.siftIntroModal {
+  text-align: left;
+  font-size: 22px;
+}
+
+.siftIntroModal .modal-header, .leftCol {
+  text-align: center;
+}
+
+.siftIntroModal .row {
+  padding: 5px;
+}
+
+.siftIntroModal .hotKeysRef .hotKey {
+  font-weight: bold;
+}
+/* END INTRO MODAL */
+
+/* TOPIC MODALS */
+.siftTopicCreateModal, siftTopicLinkModal {
+  text-align: left;
+}
+
+.siftTopicCreateModal .modal-header {
+  text-align: center;
+}
+
+.siftTopicLinkModal .modal-header {
+  text-align: center;
+}
+/* END TOPIC MODALS */
+
+/* CALL PLAYBACK */
+.siftCallPlayback {
+  visibility: hidden;
+  display: none;
+}
+/* END CALL PLAYBACK */
+/* END SIFT */
+/* VIEW TOPICS */
+.viewTopicsBox {
+  width: 90%;
+  padding: 10px 0px 0px 0px;
+  text-align: center;
+}
+
+.topicSelect .form-control {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.topicCallsTable {
+  margin-top: 15px;
+}
+
+.topicCallsTable .callCell {
+  font-size: 18px;
+}
+
+.topicCallsTable .callCell .idBadge {
+  height: 50px;
+  padding-top: 15px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.0;
+}
+
+.topicCallsTable .callCell .idBadge .idBadgeNumbers {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.topicCallsTable .callCell .glyphControls .glyphicon {
+  padding-right: 15px;
+  font-size: 30px;
+  color: #333;
+  cursor: pointer;
+}
+
+.topicCallsTable .callCell .glyphControls .glyphicon:hover {
+  color: #4183c4;
+}
+/* END VIEW TOPICS */
+/* VIEW SHARED */
+.sharedTopicBox {
+  width: 90%;
+  padding: 10px 0px 0px 0px;
+  text-align: center;
+}
+
+.shareHeading {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* END VIEW SHARED */
