@@ -216,7 +216,7 @@ var Login = require('./views/login.js');
 var ViewCities = require('./views/view-cities.js');
 var QueryCity = require('./views/query-city.js');
 var Sift = require('./views/sift/sift.js');
-var ViewTopics = require('./views/view-topics-private.js');
+var ViewTopicsPrivate = require('./views/view-topics-private.js');
 var ViewTopicPublic = require('./views/view-topic-public.js');
 var BadBrowser = require('./views/bad-browser.js');
 
@@ -250,7 +250,7 @@ ReactDOM.render(React.createElement(
   React.createElement(Route, { path: '/', component: ViewCities, onEnter: requireAuth }),
   React.createElement(Route, { path: '/city/:localityName/:localityId', component: QueryCity, onEnter: requireAuth }),
   React.createElement(Route, { path: '/sift/:localityName/:localityId/:startMs/:endMs', component: Sift, onEnter: requireAuth }),
-  React.createElement(Route, { path: '/topics', component: ViewTopics, onEnter: requireAuth }),
+  React.createElement(Route, { path: '/topics/private', component: ViewTopicsPrivate, onEnter: requireAuth }),
   React.createElement(Route, { path: '/topics/public/:topicId', component: ViewTopicPublic, onEnter: requireAuth }),
   React.createElement(Route, { path: '/bad-browser', component: BadBrowser })
 ), document.getElementById("content"));
@@ -1586,7 +1586,7 @@ var SiftBox = React.createClass({
         break;
 
       case 83:
-        var win = window.open("/#/topics", '_blank');
+        var win = window.open("/#/topics/private", '_blank');
         win.focus();
         break;
 
@@ -2334,8 +2334,8 @@ var TopicCallsTable = React.createClass({
   }
 });
 
-var ViewTopicsBox = React.createClass({
-  displayName: 'ViewTopicsBox',
+var ViewTopicsPrivateBox = React.createClass({
+  displayName: 'ViewTopicsPrivateBox',
 
   loadCalls: function loadCalls(topicId) {
     if (topicId !== undefined) {
@@ -2398,7 +2398,7 @@ var ViewTopicsBox = React.createClass({
       ),
       React.createElement(
         'div',
-        { className: 'viewTopicsBox center-block' },
+        { className: 'viewTopicsPrivateBox center-block' },
         React.createElement(TopicSelect, {
           topicId: this.state.topicId, topics: this.state.topics,
           selectCallback: this.handleTopicChange, shareCallback: this.handleShareTopic
@@ -2412,7 +2412,7 @@ var ViewTopicsBox = React.createClass({
   }
 });
 
-module.exports = ViewTopicsBox;
+module.exports = ViewTopicsPrivateBox;
 
 },{"../cache/call-cache.js":1,"../db/topics-db.js":4,"../util/ajax.js":6,"../util/colors.js":8,"fixed-data-table":70,"react":285,"react-router":100}],20:[function(require,module,exports){
 (function (global){

@@ -200,7 +200,7 @@ var SiftBox = React.createClass({
         break;
 
       case 83:
-        var win = window.open("/#/topics", '_blank');
+        var win = window.open("/#/topics/private", '_blank');
         win.focus();
         break;
 

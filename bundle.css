@@ -188,8 +188,8 @@ h1 {
 }
 /* END CALL PLAYBACK */
 /* END SIFT */
-/* VIEW TOPICS */
-.viewTopicsBox {
+/* VIEW TOPICS PRIVATE */
+.viewTopicsPrivateBox {
   width: 90%;
   padding: 10px 0px 0px 0px;
   text-align: center;
@@ -231,7 +231,7 @@ h1 {
 .topicCallsTable .callCell .glyphControls .glyphicon:hover {
   color: #4183c4;
 }
-/* END VIEW TOPICS */
+/* END VIEW TOPICS PRIVATE */
 /* VIEW PUBLIC TOPIC */
 .publicTopicBox {
   width: 90%;

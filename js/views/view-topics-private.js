@@ -169,7 +169,7 @@ var TopicCallsTable = React.createClass({
   }
 });
 
-var ViewTopicsBox = React.createClass({
+var ViewTopicsPrivateBox = React.createClass({
   loadCalls: function(topicId) {
     if (topicId !== undefined) {
       TopicsDb.linksFor(topicId, function(links) {
@@ -224,7 +224,7 @@ var ViewTopicsBox = React.createClass({
     return (
       <div>
         <h1>Topics</h1>
-        <div className="viewTopicsBox center-block">
+        <div className="viewTopicsPrivateBox center-block">
           <TopicSelect
             topicId={this.state.topicId} topics={this.state.topics}
             selectCallback={this.handleTopicChange} shareCallback={this.handleShareTopic}
@@ -240,4 +240,4 @@ var ViewTopicsBox = React.createClass({
 });
 
 
-module.exports = ViewTopicsBox;
+module.exports = ViewTopicsPrivateBox;
