@@ -232,16 +232,16 @@ h1 {
   color: #4183c4;
 }
 /* END VIEW TOPICS */
-/* VIEW SHARED */
-.sharedTopicBox {
+/* VIEW PUBLIC TOPIC */
+.publicTopicBox {
   width: 90%;
   padding: 10px 0px 0px 0px;
   text-align: center;
 }
 
-.shareHeading {
+.publicTopicHeading {
   font-size: 32px;
   font-weight: bold;
 }
-/* END VIEW SHARED */
+/* END VIEW PUBLIC TOPIC */
 

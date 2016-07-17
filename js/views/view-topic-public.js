@@ -17,7 +17,7 @@ var TOPIC_API_URL = "/api/topic";
 var PublicTopicHeading = React.createClass({
   render: function() {
     return (
-      <div className="shareHeading row">
+      <div className="publicTopicHeading row">
         <div className="col-sm-4"></div>
         <div className="col-sm-4">{this.props.name}</div>
         <div className="col-sm-4"></div>
@@ -44,8 +44,8 @@ var TopicCallsTable = React.createClass({
   },
   componentDidMount: function() {
     this.setState({
-      width       : $(".sharedTopicBox").width(),
-      columnWidth : $(".sharedTopicBox").width() / 5
+      width       : $(".publicTopicBox").width(),
+      columnWidth : $(".publicTopicBox").width() / 5
     });
   },
   componentWillReceiveProps: function(nextProps) {
@@ -164,7 +164,7 @@ var PublicTopicBox = React.createClass({
     return (
       <div>
         <h1>Public Topic</h1>
-        <div className="sharedTopicBox center-block">
+        <div className="publicTopicBox center-block">
           <PublicTopicHeading name={this.state.name} />
           <TopicCallsTable calls={this.state.calls} />
         </div>

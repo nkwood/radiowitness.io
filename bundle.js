@@ -1911,7 +1911,7 @@ var PublicTopicHeading = React.createClass({
   render: function render() {
     return React.createElement(
       'div',
-      { className: 'shareHeading row' },
+      { className: 'publicTopicHeading row' },
       React.createElement('div', { className: 'col-sm-4' }),
       React.createElement(
         'div',
@@ -1943,8 +1943,8 @@ var TopicCallsTable = React.createClass({
   },
   componentDidMount: function componentDidMount() {
     this.setState({
-      width: $(".sharedTopicBox").width(),
-      columnWidth: $(".sharedTopicBox").width() / 5
+      width: $(".publicTopicBox").width(),
+      columnWidth: $(".publicTopicBox").width() / 5
     });
   },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
@@ -2104,7 +2104,7 @@ var PublicTopicBox = React.createClass({
       ),
       React.createElement(
         'div',
-        { className: 'sharedTopicBox center-block' },
+        { className: 'publicTopicBox center-block' },
         React.createElement(PublicTopicHeading, { name: this.state.name }),
         React.createElement(TopicCallsTable, { calls: this.state.calls })
       )
