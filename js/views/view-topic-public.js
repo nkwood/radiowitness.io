@@ -135,9 +135,9 @@ var TopicCallsTable = React.createClass({
 });
 
 var PublicTopicBox = React.createClass({
-  loadTopic: function(shareId) {
+  loadTopic: function(topicId) {
     Ajax.get(
-      TOPIC_API_URL + "/" + shareId,
+      TOPIC_API_URL + "/" + topicId,
       function(topic) {
         this.setState({ name : topic.name });
         var callIds = topic.links.map(function(link) { return link.callId; });
@@ -158,7 +158,7 @@ var PublicTopicBox = React.createClass({
     document.title = "Radio Witness - public topic";
     toastr.options.timeOut = 10000;
     toastr.success("Loading topic links...");
-    this.loadTopic(this.props.params.shareId);
+    this.loadTopic(this.props.params.topicId);
   },
   render: function() {
     return (

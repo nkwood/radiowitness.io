@@ -251,7 +251,7 @@ ReactDOM.render(React.createElement(
   React.createElement(Route, { path: '/city/:localityName/:localityId', component: QueryCity, onEnter: requireAuth }),
   React.createElement(Route, { path: '/sift/:localityName/:localityId/:startMs/:endMs', component: Sift, onEnter: requireAuth }),
   React.createElement(Route, { path: '/topics', component: ViewTopics, onEnter: requireAuth }),
-  React.createElement(Route, { path: '/shared/:shareId', component: ViewTopicPublic, onEnter: requireAuth }),
+  React.createElement(Route, { path: '/topics/public/:topicId', component: ViewTopicPublic, onEnter: requireAuth }),
   React.createElement(Route, { path: '/bad-browser', component: BadBrowser })
 ), document.getElementById("content"));
 
@@ -2069,8 +2069,8 @@ var TopicCallsTable = React.createClass({
 var PublicTopicBox = React.createClass({
   displayName: 'PublicTopicBox',
 
-  loadTopic: function loadTopic(shareId) {
-    Ajax.get(TOPIC_API_URL + "/" + shareId, function (topic) {
+  loadTopic: function loadTopic(topicId) {
+    Ajax.get(TOPIC_API_URL + "/" + topicId, function (topic) {
       this.setState({ name: topic.name });
       var callIds = topic.links.map(function (link) {
         return link.callId;
@@ -2091,7 +2091,7 @@ var PublicTopicBox = React.createClass({
     document.title = "Radio Witness - public topic";
     toastr.options.timeOut = 10000;
     toastr.success("Loading topic links...");
-    this.loadTopic(this.props.params.shareId);
+    this.loadTopic(this.props.params.topicId);
   },
   render: function render() {
     return React.createElement(
@@ -2373,7 +2373,7 @@ var ViewTopicsBox = React.createClass({
     });
     var topicObj = { name: topic.name, links: topicLinks };
     Ajax.post(TOPIC_API_URL, JSON.stringify(topicObj), function (shareId) {
-      hashHistory.push("/shared/" + shareId);
+      hashHistory.push("/topics/public/" + shareId);
     }.bind(this));
   },
   getInitialState: function getInitialState() {

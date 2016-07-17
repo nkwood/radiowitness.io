@@ -48,7 +48,7 @@ ReactDOM.render((
     <Route path="/city/:localityName/:localityId" component={QueryCity} onEnter={requireAuth} />
     <Route path="/sift/:localityName/:localityId/:startMs/:endMs" component={Sift} onEnter={requireAuth} />
     <Route path="/topics" component={ViewTopics} onEnter={requireAuth} />
-    <Route path="/shared/:shareId" component={ViewTopicPublic} onEnter={requireAuth} />
+    <Route path="/topics/public/:topicId" component={ViewTopicPublic} onEnter={requireAuth} />
     <Route path="/bad-browser" component={BadBrowser} />
   </Router>
 ), document.getElementById("content"));

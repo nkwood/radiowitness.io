@@ -205,7 +205,7 @@ var ViewTopicsBox = React.createClass({
       TOPIC_API_URL,
       JSON.stringify(topicObj),
       function (shareId) {
-        hashHistory.push("/shared/" + shareId);
+        hashHistory.push("/topics/public/" + shareId);
       }.bind(this)
     );
   },
