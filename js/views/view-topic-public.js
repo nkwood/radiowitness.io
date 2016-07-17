@@ -14,7 +14,7 @@ var Colors    = require('../util/colors.js');
 var TOPIC_API_URL = "/api/topic";
 
 
-var ShareHeading = React.createClass({
+var PublicTopicHeading = React.createClass({
   render: function() {
     return (
       <div className="shareHeading row">
@@ -134,7 +134,7 @@ var TopicCallsTable = React.createClass({
   }
 });
 
-var SharedTopicBox = React.createClass({
+var PublicTopicBox = React.createClass({
   loadTopic: function(shareId) {
     Ajax.get(
       TOPIC_API_URL + "/" + shareId,
@@ -155,7 +155,7 @@ var SharedTopicBox = React.createClass({
     };
   },
   componentWillMount: function() {
-    document.title = "Radio Witness - shared topic";
+    document.title = "Radio Witness - public topic";
     toastr.options.timeOut = 10000;
     toastr.success("Loading topic links...");
     this.loadTopic(this.props.params.shareId);
@@ -163,9 +163,9 @@ var SharedTopicBox = React.createClass({
   render: function() {
     return (
       <div>
-        <h1>Shared Topic</h1>
+        <h1>Public Topic</h1>
         <div className="sharedTopicBox center-block">
-          <ShareHeading name={this.state.name} />
+          <PublicTopicHeading name={this.state.name} />
           <TopicCallsTable calls={this.state.calls} />
         </div>
       </div>
@@ -174,4 +174,4 @@ var SharedTopicBox = React.createClass({
 });
 
 
-module.exports = SharedTopicBox;
+module.exports = PublicTopicBox;

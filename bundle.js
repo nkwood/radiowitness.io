@@ -217,7 +217,7 @@ var ViewCities = require('./views/view-cities.js');
 var QueryCity = require('./views/query-city.js');
 var Sift = require('./views/sift/sift.js');
 var ViewTopics = require('./views/view-topics.js');
-var ViewShared = require('./views/view-shared.js');
+var ViewTopicPublic = require('./views/view-topic-public.js');
 var BadBrowser = require('./views/bad-browser.js');
 
 var AuthService = require('./util/auth-service.js');
@@ -251,11 +251,11 @@ ReactDOM.render(React.createElement(
   React.createElement(Route, { path: '/city/:localityName/:localityId', component: QueryCity, onEnter: requireAuth }),
   React.createElement(Route, { path: '/sift/:localityName/:localityId/:startMs/:endMs', component: Sift, onEnter: requireAuth }),
   React.createElement(Route, { path: '/topics', component: ViewTopics, onEnter: requireAuth }),
-  React.createElement(Route, { path: '/shared/:shareId', component: ViewShared, onEnter: requireAuth }),
+  React.createElement(Route, { path: '/shared/:shareId', component: ViewTopicPublic, onEnter: requireAuth }),
   React.createElement(Route, { path: '/bad-browser', component: BadBrowser })
 ), document.getElementById("content"));
 
-},{"./db/call-db.js":3,"./db/topics-db.js":4,"./util/auth-service.js":7,"./views/bad-browser.js":9,"./views/login.js":10,"./views/query-city.js":11,"./views/sift/sift.js":16,"./views/view-cities.js":17,"./views/view-shared.js":18,"./views/view-topics.js":19,"react":285,"react-dom":72,"react-router":100}],6:[function(require,module,exports){
+},{"./db/call-db.js":3,"./db/topics-db.js":4,"./util/auth-service.js":7,"./views/bad-browser.js":9,"./views/login.js":10,"./views/query-city.js":11,"./views/sift/sift.js":16,"./views/view-cities.js":17,"./views/view-topic-public.js":18,"./views/view-topics.js":19,"react":285,"react-dom":72,"react-router":100}],6:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1905,8 +1905,8 @@ var Colors = require('../util/colors.js');
 
 var TOPIC_API_URL = "/api/topic";
 
-var ShareHeading = React.createClass({
-  displayName: 'ShareHeading',
+var PublicTopicHeading = React.createClass({
+  displayName: 'PublicTopicHeading',
 
   render: function render() {
     return React.createElement(
@@ -2066,8 +2066,8 @@ var TopicCallsTable = React.createClass({
   }
 });
 
-var SharedTopicBox = React.createClass({
-  displayName: 'SharedTopicBox',
+var PublicTopicBox = React.createClass({
+  displayName: 'PublicTopicBox',
 
   loadTopic: function loadTopic(shareId) {
     Ajax.get(TOPIC_API_URL + "/" + shareId, function (topic) {
@@ -2088,7 +2088,7 @@ var SharedTopicBox = React.createClass({
     };
   },
   componentWillMount: function componentWillMount() {
-    document.title = "Radio Witness - shared topic";
+    document.title = "Radio Witness - public topic";
     toastr.options.timeOut = 10000;
     toastr.success("Loading topic links...");
     this.loadTopic(this.props.params.shareId);
@@ -2100,19 +2100,19 @@ var SharedTopicBox = React.createClass({
       React.createElement(
         'h1',
         null,
-        'Shared Topic'
+        'Public Topic'
       ),
       React.createElement(
         'div',
         { className: 'sharedTopicBox center-block' },
-        React.createElement(ShareHeading, { name: this.state.name }),
+        React.createElement(PublicTopicHeading, { name: this.state.name }),
         React.createElement(TopicCallsTable, { calls: this.state.calls })
       )
     );
   }
 });
 
-module.exports = SharedTopicBox;
+module.exports = PublicTopicBox;
 
 },{"../cache/call-cache.js":1,"../util/ajax.js":6,"../util/colors.js":8,"fixed-data-table":70,"react":285}],19:[function(require,module,exports){
 'use strict';

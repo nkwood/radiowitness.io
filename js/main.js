@@ -8,13 +8,13 @@ var Router      = require('react-router').Router;
 var Route       = require('react-router').Route;
 var hashHistory = require('react-router').hashHistory;
 
-var Login      = require('./views/login.js');
-var ViewCities = require('./views/view-cities.js');
-var QueryCity  = require('./views/query-city.js');
-var Sift       = require('./views/sift/sift.js');
-var ViewTopics = require('./views/view-topics.js');
-var ViewShared = require('./views/view-shared.js');
-var BadBrowser = require('./views/bad-browser.js');
+var Login           = require('./views/login.js');
+var ViewCities      = require('./views/view-cities.js');
+var QueryCity       = require('./views/query-city.js');
+var Sift            = require('./views/sift/sift.js');
+var ViewTopics      = require('./views/view-topics.js');
+var ViewTopicPublic = require('./views/view-topic-public.js');
+var BadBrowser      = require('./views/bad-browser.js');
 
 var AuthService = require('./util/auth-service.js');
 var CallDb      = require('./db/call-db.js');
@@ -48,7 +48,7 @@ ReactDOM.render((
     <Route path="/city/:localityName/:localityId" component={QueryCity} onEnter={requireAuth} />
     <Route path="/sift/:localityName/:localityId/:startMs/:endMs" component={Sift} onEnter={requireAuth} />
     <Route path="/topics" component={ViewTopics} onEnter={requireAuth} />
-    <Route path="/shared/:shareId" component={ViewShared} onEnter={requireAuth} />
+    <Route path="/shared/:shareId" component={ViewTopicPublic} onEnter={requireAuth} />
     <Route path="/bad-browser" component={BadBrowser} />
   </Router>
 ), document.getElementById("content"));
