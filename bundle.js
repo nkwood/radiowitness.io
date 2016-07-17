@@ -216,7 +216,7 @@ var Login = require('./views/login.js');
 var ViewCities = require('./views/view-cities.js');
 var QueryCity = require('./views/query-city.js');
 var Sift = require('./views/sift/sift.js');
-var ViewTopics = require('./views/view-topics.js');
+var ViewTopics = require('./views/view-topics-private.js');
 var ViewTopicPublic = require('./views/view-topic-public.js');
 var BadBrowser = require('./views/bad-browser.js');
 
@@ -255,7 +255,7 @@ ReactDOM.render(React.createElement(
   React.createElement(Route, { path: '/bad-browser', component: BadBrowser })
 ), document.getElementById("content"));
 
-},{"./db/call-db.js":3,"./db/topics-db.js":4,"./util/auth-service.js":7,"./views/bad-browser.js":9,"./views/login.js":10,"./views/query-city.js":11,"./views/sift/sift.js":16,"./views/view-cities.js":17,"./views/view-topic-public.js":18,"./views/view-topics.js":19,"react":285,"react-dom":72,"react-router":100}],6:[function(require,module,exports){
+},{"./db/call-db.js":3,"./db/topics-db.js":4,"./util/auth-service.js":7,"./views/bad-browser.js":9,"./views/login.js":10,"./views/query-city.js":11,"./views/sift/sift.js":16,"./views/view-cities.js":17,"./views/view-topic-public.js":18,"./views/view-topics-private.js":19,"react":285,"react-dom":72,"react-router":100}],6:[function(require,module,exports){
 'use strict';
 
 /*

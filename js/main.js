@@ -12,7 +12,7 @@ var Login           = require('./views/login.js');
 var ViewCities      = require('./views/view-cities.js');
 var QueryCity       = require('./views/query-city.js');
 var Sift            = require('./views/sift/sift.js');
-var ViewTopics      = require('./views/view-topics.js');
+var ViewTopics      = require('./views/view-topics-private.js');
 var ViewTopicPublic = require('./views/view-topic-public.js');
 var BadBrowser      = require('./views/bad-browser.js');
 
