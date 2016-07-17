@@ -161,6 +161,7 @@ var PublicTopicBox = React.createClass({
     this.loadTopic(this.props.params.topicId);
   },
   render: function() {
+    document.title = "Radio Witness - " + this.state.name;
     return (
       <div>
         <h1>Public Topic</h1>

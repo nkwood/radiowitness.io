@@ -2094,6 +2094,7 @@ var PublicTopicBox = React.createClass({
     this.loadTopic(this.props.params.topicId);
   },
   render: function render() {
+    document.title = "Radio Witness - " + this.state.name;
     return React.createElement(
       'div',
       null,
@@ -2384,7 +2385,7 @@ var ViewTopicsPrivateBox = React.createClass({
     };
   },
   componentWillMount: function componentWillMount() {
-    document.title = "Radio Witness - topics";
+    document.title = "Radio Witness - private topics";
     this.loadTopics();
   },
   render: function render() {
@@ -2394,7 +2395,7 @@ var ViewTopicsPrivateBox = React.createClass({
       React.createElement(
         'h1',
         null,
-        'Topics'
+        'Private Topics'
       ),
       React.createElement(
         'div',

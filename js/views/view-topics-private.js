@@ -217,13 +217,13 @@ var ViewTopicsPrivateBox = React.createClass({
     };
   },
   componentWillMount: function() {
-    document.title = "Radio Witness - topics";
+    document.title = "Radio Witness - private topics";
     this.loadTopics();
   },
   render: function() {
     return (
       <div>
-        <h1>Topics</h1>
+        <h1>Private Topics</h1>
         <div className="viewTopicsPrivateBox center-block">
           <TopicSelect
             topicId={this.state.topicId} topics={this.state.topics}
