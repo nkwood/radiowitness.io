@@ -2211,8 +2211,8 @@ var TopicCallsTable = React.createClass({
   },
   componentDidMount: function componentDidMount() {
     this.setState({
-      width: $(".viewTopicsBox").width(),
-      columnWidth: $(".viewTopicsBox").width() / 5
+      width: $(".viewTopicsPrivateBox").width(),
+      columnWidth: $(".viewTopicsPrivateBox").width() / 5
     });
   },
   componentWillReceiveProps: function componentWillReceiveProps(nextProps) {

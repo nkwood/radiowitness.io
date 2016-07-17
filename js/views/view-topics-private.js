@@ -78,8 +78,8 @@ var TopicCallsTable = React.createClass({
   },
   componentDidMount: function() {
     this.setState({
-      width       : $(".viewTopicsBox").width(),
-      columnWidth : $(".viewTopicsBox").width() / 5
+      width       : $(".viewTopicsPrivateBox").width(),
+      columnWidth : $(".viewTopicsPrivateBox").width() / 5
     });
   },
   componentWillReceiveProps: function(nextProps) {
