@@ -20,10 +20,10 @@ var TopicSelect = React.createClass({
   handleOptionSelected: function(event) {
     this.props.selectCallback(parseInt(event.target.value));
   },
-  handleShare: function(event) {
+  handlePublish: function(event) {
     for (var i = 0; i < this.props.topics.length; i++) {
       if (this.props.topicId == this.props.topics[i].id) {
-        this.props.shareCallback(this.props.topics[i]);
+        this.props.publishCallback(this.props.topics[i]);
       }
     }
   },
@@ -45,8 +45,8 @@ var TopicSelect = React.createClass({
           </select>
         </div>
         <div className="col-sm-2">
-          <button type="button" className="btn btn-primary fullWidth" onClick={this.handleShare}>
-            SHARE
+          <button type="button" className="btn btn-primary fullWidth" onClick={this.handlePublish}>
+            PUBLISH
           </button>
         </div>
         <div className="col-sm-1"></div>
@@ -198,14 +198,14 @@ var ViewTopicsPrivateBox = React.createClass({
     });
     this.loadCalls(topicId);
   },
-  handleShareTopic: function(topic) {
+  handlePublishTopic: function(topic) {
     var topicLinks = this.state.calls.map(function(call) { return { callId : call.id }; });
     var topicObj   = { name : topic.name, links : topicLinks };
     Ajax.post(
       TOPIC_API_URL,
       JSON.stringify(topicObj),
-      function (shareId) {
-        hashHistory.push("/topics/public/" + shareId);
+      function (topicId) {
+        hashHistory.push("/topics/public/" + topicId);
       }.bind(this)
     );
   },
@@ -227,7 +227,7 @@ var ViewTopicsPrivateBox = React.createClass({
         <div className="viewTopicsPrivateBox center-block">
           <TopicSelect
             topicId={this.state.topicId} topics={this.state.topics}
-            selectCallback={this.handleTopicChange} shareCallback={this.handleShareTopic}
+            selectCallback={this.handleTopicChange} publishCallback={this.handlePublishTopic}
           />
           <TopicCallsTable
             topicId={this.state.topicId} calls={this.state.calls}

@@ -2142,10 +2142,10 @@ var TopicSelect = React.createClass({
   handleOptionSelected: function handleOptionSelected(event) {
     this.props.selectCallback(parseInt(event.target.value));
   },
-  handleShare: function handleShare(event) {
+  handlePublish: function handlePublish(event) {
     for (var i = 0; i < this.props.topics.length; i++) {
       if (this.props.topicId == this.props.topics[i].id) {
-        this.props.shareCallback(this.props.topics[i]);
+        this.props.publishCallback(this.props.topics[i]);
       }
     }
   },
@@ -2176,8 +2176,8 @@ var TopicSelect = React.createClass({
         { className: 'col-sm-2' },
         React.createElement(
           'button',
-          { type: 'button', className: 'btn btn-primary fullWidth', onClick: this.handleShare },
-          'SHARE'
+          { type: 'button', className: 'btn btn-primary fullWidth', onClick: this.handlePublish },
+          'PUBLISH'
         )
       ),
       React.createElement('div', { className: 'col-sm-1' })
@@ -2367,13 +2367,13 @@ var ViewTopicsPrivateBox = React.createClass({
     });
     this.loadCalls(topicId);
   },
-  handleShareTopic: function handleShareTopic(topic) {
+  handlePublishTopic: function handlePublishTopic(topic) {
     var topicLinks = this.state.calls.map(function (call) {
       return { callId: call.id };
     });
     var topicObj = { name: topic.name, links: topicLinks };
-    Ajax.post(TOPIC_API_URL, JSON.stringify(topicObj), function (shareId) {
-      hashHistory.push("/topics/public/" + shareId);
+    Ajax.post(TOPIC_API_URL, JSON.stringify(topicObj), function (topicId) {
+      hashHistory.push("/topics/public/" + topicId);
     }.bind(this));
   },
   getInitialState: function getInitialState() {
@@ -2401,7 +2401,7 @@ var ViewTopicsPrivateBox = React.createClass({
         { className: 'viewTopicsPrivateBox center-block' },
         React.createElement(TopicSelect, {
           topicId: this.state.topicId, topics: this.state.topics,
-          selectCallback: this.handleTopicChange, shareCallback: this.handleShareTopic
+          selectCallback: this.handleTopicChange, publishCallback: this.handlePublishTopic
         }),
         React.createElement(TopicCallsTable, {
           topicId: this.state.topicId, calls: this.state.calls,
