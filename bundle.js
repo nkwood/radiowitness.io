@@ -1985,7 +1985,7 @@ var TopicCallsTable = React.createClass({
   render: function render() {
     var _this = this;
 
-    if (this.state.width === undefined) {
+    if (this.props.calls.length <= 0) {
       return React.createElement('div', { className: 'topicCallsTable' });
     }
 
