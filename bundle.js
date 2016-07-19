@@ -440,7 +440,7 @@ var AboutBox = React.createClass({
           ". Nearly all the software behind this service is Open Source with collaboration organized through ",
           React.createElement(
             "a",
-            { href: "https://github.com/rhodey/radiowitness.io" },
+            { href: "https://github.com/rhodey/radiowitness.io/wiki" },
             "Github"
           ),
           "."

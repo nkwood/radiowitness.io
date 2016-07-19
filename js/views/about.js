@@ -29,7 +29,7 @@ var AboutBox = React.createClass({
             , <a href="https://blockchain.info/address/13QQdpXoktH8axnY3K6Lvu1DyBGbq3CPQM">Bitcoin</a>
             , or <a href="https://etherchain.org/account/0x3ffc132784c89a7edda93e3ad3d669ab6c013cfd">Ethereum</a>.
             Nearly all the software behind this service is Open Source with collaboration
-            organized through <a href="https://github.com/rhodey/radiowitness.io">Github</a>.
+            organized through <a href="https://github.com/rhodey/radiowitness.io/wiki">Github</a>.
           </p>
         </div>
       </div>
