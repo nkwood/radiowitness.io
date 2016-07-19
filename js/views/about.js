@@ -24,10 +24,10 @@ var AboutBox = React.createClass({
 
             <br/><br/>
 
-            If you would like to support the project financially you may do so via
-            <a href="https://patreon.com/radiowitness">Patreon</a>,
-            <a href="https://blockchain.info/address/13QQdpXoktH8axnY3K6Lvu1DyBGbq3CPQM">Bitcoin</a>,
-            or <a href="https://etherchain.org/account/0x3ffc132784c89a7edda93e3ad3d669ab6c013cfd">Ethereum</a>.
+            If you would like to support the project financially you may do so
+            via <a href="https://patreon.com/radiowitness">Patreon</a>
+            , <a href="https://blockchain.info/address/13QQdpXoktH8axnY3K6Lvu1DyBGbq3CPQM">Bitcoin</a>
+            , or <a href="https://etherchain.org/account/0x3ffc132784c89a7edda93e3ad3d669ab6c013cfd">Ethereum</a>.
             Nearly all the software behind this service is Open Source with collaboration
             organized through <a href="https://github.com/rhodey/radiowitness.io">Github</a>.
           </p>
