@@ -9,12 +9,13 @@ var Route       = require('react-router').Route;
 var hashHistory = require('react-router').hashHistory;
 
 var Login             = require('./views/login.js');
+var BadBrowser        = require('./views/bad-browser.js');
+var About             = require('./views/about.js');
 var ViewCities        = require('./views/view-cities.js');
 var QueryCity         = require('./views/query-city.js');
 var Sift              = require('./views/sift/sift.js');
 var ViewTopicsPrivate = require('./views/view-topics-private.js');
 var ViewTopicPublic   = require('./views/view-topic-public.js');
-var BadBrowser        = require('./views/bad-browser.js');
 
 var AuthService = require('./util/auth-service.js');
 var CallDb      = require('./db/call-db.js');
@@ -44,11 +45,12 @@ function requireAuth(nextState, replace) {
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/login" component={Login} onEnter={requireDexie} />
+    <Route path="/bad-browser" component={BadBrowser} />
+    <Route path="/about" component={About} />
     <Route path="/" component={ViewCities} onEnter={requireAuth} />
     <Route path="/city/:localityName/:localityId" component={QueryCity} onEnter={requireAuth} />
     <Route path="/sift/:localityName/:localityId/:startMs/:endMs" component={Sift} onEnter={requireAuth} />
     <Route path="/topics/private" component={ViewTopicsPrivate} onEnter={requireAuth} />
     <Route path="/topics/public/:topicId" component={ViewTopicPublic} onEnter={requireAuth} />
-    <Route path="/bad-browser" component={BadBrowser} />
   </Router>
 ), document.getElementById("content"));

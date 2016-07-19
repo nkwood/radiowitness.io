@@ -39,6 +39,16 @@ h1 {
 
 }
 /* END BAD BROWSER */
+/* ABOUT */
+.aboutBox {
+  width: 60%;
+  padding: 30px 0px 0px 0px;
+}
+
+.aboutText {
+
+}
+/* END ABOUT */
 /* LOGIN */
 .loginBox {
   width: 40%;
