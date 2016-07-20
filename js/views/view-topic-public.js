@@ -7,9 +7,10 @@ var Table  = require('fixed-data-table').Table;
 var Column = require('fixed-data-table').Column;
 var Cell   = require('fixed-data-table').Cell;
 
-var Ajax      = require('../util/ajax.js');
-var CallCache = require('../cache/call-cache.js');
-var Colors    = require('../util/colors.js');
+var NavigationBar = require('./navigation.js');
+var Ajax          = require('../util/ajax.js');
+var CallCache     = require('../cache/call-cache.js');
+var Colors        = require('../util/colors.js');
 
 var TOPIC_API_URL = "/api/topic";
 
@@ -164,6 +165,7 @@ var PublicTopicBox = React.createClass({
     document.title = "Radio Witness - " + this.state.name;
     return (
       <div>
+        <NavigationBar/>
         <h1>Public Topic</h1>
         <div className="publicTopicBox center-block">
           <PublicTopicHeading name={this.state.name} />

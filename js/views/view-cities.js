@@ -5,8 +5,9 @@
 var React = require('react');
 var Link  = require('react-router').Link;
 
-var Ajax    = require('../util/ajax.js');
-var TzCache = require('../cache/tz-cache.js');
+var NavigationBar = require('./navigation.js');
+var Ajax          = require('../util/ajax.js');
+var TzCache       = require('../cache/tz-cache.js');
 
 var LOCALITY_API_URL    = "/api/locality";
 var REFRESH_INTERVAL_MS = 2000;
@@ -151,6 +152,7 @@ var CitiesBox = React.createClass({
   render: function() {
     return (
       <div>
+        <NavigationBar/>
         <h1>Cities</h1>
         <div className="citiesBox center-block">
           <CityList localities={this.state.localities} />

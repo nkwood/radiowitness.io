@@ -7,11 +7,12 @@ var Table  = require('fixed-data-table').Table;
 var Column = require('fixed-data-table').Column;
 var Cell   = require('fixed-data-table').Cell;
 
-var Ajax        = require('../util/ajax.js');
-var TopicsDb    = require('../db/topics-db.js');
-var CallCache   = require('../cache/call-cache.js');
-var Colors      = require('../util/colors.js');
-var hashHistory = require('react-router').hashHistory;
+var NavigationBar = require('./navigation.js');
+var Ajax          = require('../util/ajax.js');
+var TopicsDb      = require('../db/topics-db.js');
+var CallCache     = require('../cache/call-cache.js');
+var Colors        = require('../util/colors.js');
+var hashHistory   = require('react-router').hashHistory;
 
 var TOPIC_API_URL = "/api/topic";
 
@@ -223,6 +224,7 @@ var ViewTopicsPrivateBox = React.createClass({
   render: function() {
     return (
       <div>
+        <NavigationBar/>
         <h1>Private Topics</h1>
         <div className="viewTopicsPrivateBox center-block">
           <TopicSelect

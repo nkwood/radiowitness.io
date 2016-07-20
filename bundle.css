@@ -29,6 +29,11 @@ h1 {
   width: 100%;
 }
 /* END BASE */
+/* NAVIGATION */
+.navigationBar {
+
+}
+/* END NAVIGATION */
 /* BAD BROWSER */
 .badBrowserBox {
   width: 60%;
