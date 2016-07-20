@@ -35,9 +35,9 @@ function requireDexie(nextState, replace) {
 
 function requireAuth(nextState, replace) {
   if (requireDexie(nextState, replace) === true) {
-    if (!AuthService.loggedIn()) {
+    /*if (!AuthService.loggedIn()) {
       replace({ pathname: "/login" });
-    }
+    }*/
   }
 }
 
