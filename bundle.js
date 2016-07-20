@@ -576,22 +576,25 @@ var NavigationBar = React.createClass({
     return React.createElement(
       'div',
       { className: 'navigationBar row' },
-      React.createElement('div', { className: 'col-sm-1' }),
       React.createElement(
         'div',
-        { className: 'col-sm-3' },
+        { className: 'col-sm-1' },
         React.createElement(
           Link,
           { to: '/about', className: 'fullWidth' },
           'ABOUT'
-        ),
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'col-sm-1' },
         React.createElement(
           'a',
           { href: 'mailto:rhodey@anhonesteffort.org', className: 'fullWidth' },
           'EMAIL'
         )
       ),
-      React.createElement('div', { className: 'col-sm-8' })
+      React.createElement('div', { className: 'col-sm-10' })
     );
   }
 });
