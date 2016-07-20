@@ -31,9 +31,10 @@ h1 {
 /* END BASE */
 /* NAVIGATION */
 .navigationBar {
-  font-size: 22px;
+  font-size: 18px;
 }
 /* END NAVIGATION */
+
 /* BAD BROWSER */
 .badBrowserBox {
   width: 60%;
