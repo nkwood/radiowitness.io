@@ -171,8 +171,8 @@ var QueryCityBox = React.createClass({
   },
   getDayBounds: function(tz, utcMs) {
     return {
-      start : parseInt(moment.utc(utcMs).tz(tz).startOf('day').format('x')),
-      end   : parseInt(moment.utc(utcMs).tz(tz).endOf('day').format('x'))
+      start : (parseInt(moment.utc(utcMs).tz(tz).startOf('day').format('x')) / 1000 / 60),
+      end   : (parseInt(moment.utc(utcMs).tz(tz).endOf('day').format('x')) / 1000 / 60)
     };
   },
   getNextUrl: function() {
@@ -190,7 +190,7 @@ var QueryCityBox = React.createClass({
   getTimeSeriesUrl: function(startMs) {
     var bounds = this.getDayBounds(this.state.tz, startMs);
     return TIMESERIES_API_URL + "/" + this.state.localityId + "?" +
-             "startMs=" + bounds.start + "&endMs=" + bounds.end;
+             "startMin=" + bounds.start + "&endMin=" + bounds.end;
   },
   loadTimeSeries: function(startMs, endMs) {
     toastr.options.timeOut = 10000;
