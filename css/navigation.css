@@ -1,5 +1,30 @@
 /* NAVIGATION */
 .navigationBar {
   font-size: 18px;
+  position:  fixed;
+  top:       15px;
+  left:      15px;
+}
+
+.navigationBar  a {
+  color:           black;
+  text-decoration: underline;
+}
+
+.navigationBar > div {
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 768px) {
+
+  .navigationBar {
+    position: inherit;
+    margin-bottom: 20px;
+  }
+
+  .navigationBar > div {
+    float: left;
+  }
+
 }
 /* END NAVIGATION */

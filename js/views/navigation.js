@@ -10,13 +10,16 @@ var NavigationBar = React.createClass({
   render: function() {
     return (
       <div className="navigationBar row">
-        <div className="col-sm-1">
+        <div className="col-sm-12">
+          <Link to="/" className="fullWidth">HOME</Link>
+        </div>
+        <div className="col-sm-12">
           <Link to="/about" className="fullWidth">ABOUT</Link>
         </div>
-        <div className="col-sm-1">
+        <div className="col-sm-12">
           <a href="mailto:rhodey@anhonesteffort.org" className="fullWidth">EMAIL</a>
         </div>
-        <div className="col-sm-10"/>
+        <div className="col-sm-12"/>
       </div>
     );
   }

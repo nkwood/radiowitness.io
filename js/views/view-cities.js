@@ -8,13 +8,19 @@ var Link  = require('react-router').Link;
 var NavigationBar = require('./navigation.js');
 var Ajax          = require('../util/ajax.js');
 var TzCache       = require('../cache/tz-cache.js');
-var Config              = require('../config/config');
+var Config        = require('../config/config');
 
 var LOCALITY_API_URL    = Config.apiEndpoint + "/locality";
 var REFRESH_INTERVAL_MS = 2000;
 
 
 var CityListItem = React.createClass({
+  getLocality() {
+    return this.props.locality.name;
+  },
+  getCount() {
+    return this.props.locality.callCount.toLocaleString() + "      ";
+  },
   getText: function() {
     return this.props.locality.name + " " + this.props.locality.callCount.toLocaleString();
   },
@@ -24,8 +30,15 @@ var CityListItem = React.createClass({
   render: function() {
     return (
       <div className={"cityListItem row" + ((this.props.isLast) ? " cityListItemLast" : "")}>
-        <div className="cityListItemPlus col-xs-1">+</div>
-        <Link to={this.getCityUrl()} className="col-xs-11">{this.getText()}</Link>
+        <div className="cityListItemPlus col-xs-1"><h1 className="pull-right">+</h1></div>
+        <Link to={this.getCityUrl()} className="col-xs-10">
+          <div className="col-xs-7">
+            <h1>{this.getLocality()}</h1>
+          </div> 
+          <div className="col-xs-4">
+            <h1>{this.getCount()}</h1>
+          </div> 
+        </Link>
       </div>
     );
   }
@@ -57,35 +70,9 @@ var CityList = React.createClass({
       itemRefs : itemRefs
     });
   },
-  componentDidUpdate: function(prevProps, prevState) {
-    var targetWidth = $("#mockListItem").width();
-    var itemText    = null;
-    var fontSize    = 16;
-
-    this.state.itemRefs.forEach(function(item) {
-      if (itemText === null) {
-        itemText = item.getText();
-      } else if (itemText.length < item.getText().length) {
-        itemText = item.getText();
-      }
-    });
-
-    $("#testDiv").text("+" + itemText);
-    $("#testDiv").css("font-size", fontSize + "px");
-
-    while ($("#testDiv").width() < targetWidth) {
-      $("#testDiv").css("font-size", ++fontSize + "px");
-    }
-
-    $(".citiesBox").css("font-size", (--fontSize) + "px");
-  },
-  componentWillUnmount: function() {
-    $("#testDiv").text("");
-    $("#testDiv").css("font-size", "1px");
-  },
   render: function() {
     return (
-      <div className="cityList">
+      <div className="cityList col-xs-12">
         <div className="cityListItem row">
           <div className="col-xs-1"></div>
           <div className="col-xs-11" id="mockListItem"></div>
@@ -104,9 +91,16 @@ var CitiesCallSum = React.createClass({
     });
 
     return (
-      <div className="citiesCallSum row">
-        <div className="col-xs-12">
-          {(sum > 0) ? (sum.toLocaleString() + " calls") : ""}
+      <div className="citiesCallSum col-xs-12">
+        <div className="row">
+          <div className="col-xs-10 col-xs-offset-1">
+            <div className="col-xs-4 col-xs-offset-7">
+              <h1 className="">{(sum > 0) ? (sum.toLocaleString()): ""}</h1>
+            </div>
+            <div className="col-xs-1 visible-lg">
+              <h1>calls</h1>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -155,7 +149,7 @@ var CitiesBox = React.createClass({
       <div>
         <NavigationBar/>
         <h1>Cities</h1>
-        <div className="citiesBox center-block">
+        <div className="citiesBox col-xs-10 col-xs-offset-1">
           <CityList localities={this.state.localities} />
           <CitiesCallSum localities={this.state.localities} />
         </div>
