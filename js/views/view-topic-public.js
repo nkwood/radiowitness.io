@@ -11,8 +11,9 @@ var NavigationBar = require('./navigation.js');
 var Ajax          = require('../util/ajax.js');
 var CallCache     = require('../cache/call-cache.js');
 var Colors        = require('../util/colors.js');
+var Config        = require('../config/config.js');
 
-var TOPIC_API_URL = "/api/topic";
+var TOPIC_API_URL = Config.apiEndpoint + "/topic";
 
 
 var PublicTopicHeading = React.createClass({

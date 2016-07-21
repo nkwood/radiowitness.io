@@ -13,8 +13,9 @@ var TopicsDb      = require('../db/topics-db.js');
 var CallCache     = require('../cache/call-cache.js');
 var Colors        = require('../util/colors.js');
 var hashHistory   = require('react-router').hashHistory;
+var Config        = require('../config/config');
 
-var TOPIC_API_URL = "/api/topic";
+var TOPIC_API_URL = Config.apiEndpoint + "/topic";
 
 
 var TopicSelect = React.createClass({

@@ -8,8 +8,9 @@ var Link  = require('react-router').Link;
 var NavigationBar = require('./navigation.js');
 var Ajax          = require('../util/ajax.js');
 var TzCache       = require('../cache/tz-cache.js');
+var Config              = require('../config/config');
 
-var LOCALITY_API_URL    = "/api/locality";
+var LOCALITY_API_URL    = Config.apiEndpoint + "/locality";
 var REFRESH_INTERVAL_MS = 2000;
 
 

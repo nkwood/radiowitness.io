@@ -16,8 +16,9 @@ var CallDb        = require('../../db/call-db.js');
 var TopicsDb      = require('../../db/topics-db.js');
 var TzCache       = require('../../cache/tz-cache.js');
 var Colors        = require('../../util/colors.js');
+var Config        = require('../../config/config.js');
 
-var CALLS_API_URL = "/api/calls";
+var CALLS_API_URL = Config.apiEndpoint + "/calls";
 
 
 var CallsGridHeading = React.createClass({
