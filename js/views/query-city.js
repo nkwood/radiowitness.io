@@ -171,8 +171,8 @@ var QueryCityBox = React.createClass({
   },
   getDayBounds: function(tz, utcMs) {
     return {
-      start : (parseInt(moment.utc(utcMs).tz(tz).startOf('day').format('x')) / 1000 / 60),
-      end   : (parseInt(moment.utc(utcMs).tz(tz).endOf('day').format('x')) / 1000 / 60)
+      start : parseInt(parseInt(moment.utc(utcMs).tz(tz).startOf('day').format('x')) / 1000 / 60),
+      end   : parseInt(parseInt(moment.utc(utcMs).tz(tz).endOf('day').format('x')) / 1000 / 60)
     };
   },
   getNextUrl: function() {
