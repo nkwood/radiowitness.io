@@ -8,8 +8,9 @@ var Link  = require('react-router').Link;
 var NavigationBar = require('./navigation.js');
 var Ajax          = require('../util/ajax.js');
 var TzCache       = require('../cache/tz-cache.js');
+var Config        = require('../config/config');
 
-var TIMESERIES_API_URL = "/api/timeseries";
+var TIMESERIES_API_URL = Config.apiEndpoint + "/timeseries";
 
 
 function convertSeriesToMinutes(tz, series, min, max) {

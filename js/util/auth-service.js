@@ -2,6 +2,8 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
+var Config      = require('../config/config');
+var ENDPOINT    = Config.apiEndpoint + '/login'; 
 var KEY_USER    = "auth:user";
 var KEY_PASS    = "auth:pass";
 var AuthService = function() { };
@@ -21,7 +23,7 @@ AuthService.prototype.loggedIn = function() {
 
 AuthService.prototype.login = function(user, pass, callback) {
   $.ajax({
-    url: "/api/login",
+    url: ENDPOINT,
     cache: false,
     success: function(data) {
       localStorage.setItem(KEY_USER, user);
