@@ -2,6 +2,7 @@
 
 ## Setup
 ```
+$ npm install
 $ ./bundle.sh
 ```
 
