@@ -1,8 +1,10 @@
 /* VIEW CITIES */
 .citiesBox {
-  width: 50%;
-  padding: 30px 0px 0px 0px;
-  text-align: right;
+}
+
+.cityListItem h1 {
+  font-weight: normal;
+  border: none;
 }
 
 .cityListItemPlus {
@@ -11,7 +13,8 @@
 }
 
 .cityListItemLast {
-  border-bottom: 4px solid #000;
+  border-bottom: 3px solid black;
+  margin-bottom: 10px;
 }
 
 .cityListItemLast .cityListItemPlus {
