@@ -209,6 +209,9 @@ var SiftBox = React.createClass({
       case 191:
         this.intro.show();
         break;
+      case 27:
+        this.intro.hide();
+        break;
     }
     return true;
   },
