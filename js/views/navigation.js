@@ -17,7 +17,7 @@ var NavigationBar = React.createClass({
           <Link to="/about" className="fullWidth">ABOUT</Link>
         </div>
         <div className="col-sm-12">
-          <a href="mailto:rhodey@anhonesteffort.org" className="fullWidth">EMAIL</a>
+          <a href="mailto:info@radiowitness.io" className="fullWidth">EMAIL</a>
         </div>
         <div className="col-sm-12"/>
       </div>
