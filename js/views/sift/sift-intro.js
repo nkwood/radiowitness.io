@@ -9,6 +9,9 @@ var SiftIntroModal = React.createClass({
   show: function() {
     $("#siftIntroModal").modal('show');
   },
+  hide: function() {
+    $("#siftIntroModal").modal('hide');
+  },
   componentDidMount: function() {
     this.show();
   },
