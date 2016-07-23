@@ -1,9 +1,22 @@
 # radiowitness.io
 
+HTLM CSS & JavaScript source for the [Radio Witness](https://radiowitness.io) web app.
+
 ## Setup
 ```
 $ npm install
+```
+
+## Build
+```
 $ ./bundle.sh
+```
+
+## Testing
+```
+$ vim js/config/config.js
+$ ./bundle.sh
+$ python -m SimpleHTTPServer
 ```
 
 ## License
