@@ -7,9 +7,8 @@
     "url": "https://github.com/radiowitness/radiowitness.io"
   },
   "scripts": {
-    "start": "http-server -p 3000 .",
-    "build": "NODE_ENV=production webpack -p",
-    "watch": "NODE_ENV=dev webpack-dev-server --hot --progress --colors"
+    "build": "NODE_ENV=production webpack --config webpack.production.config.js -p",
+    "dev": "NODE_ENV=dev webpack-dev-server --hot --progress --colors"
   },
   "author": "An Honest Effort LLC",
   "license": "GPLv3",
