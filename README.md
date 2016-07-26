@@ -9,14 +9,13 @@ $ npm install
 
 ## Build
 ```
-$ ./bundle.sh
+$ npm run build 
 ```
 
 ## Testing
 ```
 $ vim js/config/config.js
-$ ./bundle.sh
-$ python -m SimpleHTTPServer
+$ npm run dev
 ```
 
 ## License
