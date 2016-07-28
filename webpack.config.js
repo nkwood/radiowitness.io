@@ -6,6 +6,10 @@ var BUILD_DIR   = path.resolve(__dirname, '');
 var APP_DIR     = path.resolve(__dirname, 'js');
 var STYLES_DIR  = path.resolve(__dirname, 'css');
 
+var definePlugin = new webpack.DefinePlugin({
+  __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true'))
+});
+
 function getEntrySources(sources) {
     if (process.env.NODE_ENV === 'dev') {
         sources.push('webpack-dev-server/client?http://localhost:8080');
@@ -45,7 +49,8 @@ var config = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin("bundle.css")
+    new ExtractTextPlugin("bundle.css"),
+    definePlugin
   ],
   devServer: {
     hot: true

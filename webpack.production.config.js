@@ -6,6 +6,10 @@ var BUILD_DIR   = path.resolve(__dirname, '');
 var APP_DIR     = path.resolve(__dirname, 'js');
 var STYLES_DIR  = path.resolve(__dirname, 'css');
 
+var definePlugin = new webpack.DefinePlugin({
+  __DEV__: false
+});
+
 var config = {
   entry: [
     APP_DIR    + '/main.js',
@@ -35,7 +39,8 @@ var config = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin("bundle.css")
+    new ExtractTextPlugin("bundle.css"),
+    definePlugin
   ]
 };
 
