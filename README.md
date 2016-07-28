@@ -14,7 +14,6 @@ $ npm run build
 
 ## Testing
 ```
-$ vim js/config/config.js
 $ npm run dev
 ```
 
