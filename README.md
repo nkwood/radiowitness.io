@@ -1,6 +1,8 @@
 # radiowitness.io
 
-HTLM CSS & JavaScript source for the [Radio Witness](https://radiowitness.io) web app.
+HTLM, CSS, & JavaScript source for the [Radio Witness](https://radiowitness.io)
+web app. The `master` branch is considered to be tested and ready for production,
+the `production` branch is live online.
 
 ## Setup
 ```
