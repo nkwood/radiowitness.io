@@ -10,7 +10,6 @@ var SiftCallPlayback     = require('./sift-audio.js');
 var SiftTopicCreateModal = require('./sift-topic-create.js');
 var SiftTopicLinkModal   = require('./sift-topic-link.js');
 
-var NavigationBar = require('../navigation.js');
 var Ajax          = require('../../util/ajax.js');
 var CallDb        = require('../../db/call-db.js');
 var TopicsDb      = require('../../db/topics-db.js');
@@ -253,7 +252,6 @@ var SiftBox = React.createClass({
 
     return (
       <div>
-        <NavigationBar/>
         <h1 className="siftBoxHeading">
           {this.state.localityName}
           <span className="timeSpanSpan">

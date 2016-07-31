@@ -5,7 +5,6 @@
 var React         = require('react');
 var hashHistory   = require('react-router').hashHistory;
 var AuthService   = require('../util/auth-service.js');
-var NavigationBar = require('./navigation.js');
 
 
 var LoginBox = React.createClass({
@@ -30,7 +29,6 @@ var LoginBox = React.createClass({
   render: function() {
     return (
       <div>
-        <NavigationBar/>
         <h1>Login</h1>
         <div className="loginBox center-block">
           <form className="form-signin" onSubmit={this.handleLogin}>

@@ -3,7 +3,6 @@
  */
 
 var React         = require('react');
-var NavigationBar = require('./navigation.js');
 
 
 var BadBrowserBox = React.createClass({
@@ -13,7 +12,6 @@ var BadBrowserBox = React.createClass({
   render: function() {
     return (
       <div>
-        <NavigationBar/>
         <h1>Bad Browser :(</h1>
         <div className="badBrowserBox center-block">
           <p className="badBrowserText lead">

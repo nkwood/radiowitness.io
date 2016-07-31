@@ -3,7 +3,6 @@
  */
 
 var React         = require('react');
-var NavigationBar = require('./navigation.js');
 
 
 var AboutBox = React.createClass({
@@ -13,7 +12,6 @@ var AboutBox = React.createClass({
   render: function() {
     return (
       <div>
-        <NavigationBar/>
         <h1>About</h1>
         <div className="aboutBox center-block">
           <p className="aboutText lead">

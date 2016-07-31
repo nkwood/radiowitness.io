@@ -7,7 +7,6 @@ var Table  = require('fixed-data-table').Table;
 var Column = require('fixed-data-table').Column;
 var Cell   = require('fixed-data-table').Cell;
 
-var NavigationBar = require('./navigation.js');
 var Ajax          = require('../util/ajax.js');
 var TopicsDb      = require('../db/topics-db.js');
 var CallCache     = require('../cache/call-cache.js');
@@ -225,7 +224,6 @@ var ViewTopicsPrivateBox = React.createClass({
   render: function() {
     return (
       <div>
-        <NavigationBar/>
         <h1>Private Topics</h1>
         <div className="viewTopicsPrivateBox center-block">
           <TopicSelect

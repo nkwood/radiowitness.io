@@ -5,7 +5,6 @@
 var React = require('react');
 var Link  = require('react-router').Link;
 
-var NavigationBar = require('./navigation.js');
 var Ajax          = require('../util/ajax.js');
 var TzCache       = require('../cache/tz-cache.js');
 var Config        = require('../config/config');
@@ -265,7 +264,6 @@ var QueryCityBox = React.createClass({
 
     return (
       <div>
-        <NavigationBar/>
         <h1>{this.state.localityName}</h1>
         <div className="queryCityBox center-block">
           <div className="queryFormHeadings row">

@@ -5,7 +5,6 @@
 var React = require('react');
 var Link  = require('react-router').Link;
 
-var NavigationBar = require('./navigation.js');
 var Ajax          = require('../util/ajax.js');
 var TzCache       = require('../cache/tz-cache.js');
 var Config        = require('../config/config');
@@ -147,7 +146,6 @@ var CitiesBox = React.createClass({
   render: function() {
     return (
       <div>
-        <NavigationBar/>
         <h1>Cities</h1>
         <div className="citiesBox col-xs-10 col-xs-offset-1">
           <CityList localities={this.state.localities} />
