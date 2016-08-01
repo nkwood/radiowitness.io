@@ -46,12 +46,12 @@ function requireAuth(nextState, replace) {
 var App = React.createClass({
   render: function() {
     return (
-     <div> 
+     <div>
        <Navigation />
        {this.props.children}
      </div>
     );
-  }     
+  }
 });
 
 ReactDOM.render((
