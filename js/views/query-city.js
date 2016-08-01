@@ -168,12 +168,6 @@ var QueryCityBox = React.createClass({
     destination.year(source.year());
     destination.dayOfYear(source.dayOfYear());
   },
-  getDayBounds: function(tz, utcMs) {
-    return {
-      start : parseInt(parseInt(moment.utc(utcMs).tz(tz).startOf('day').format('x')) / 1000 / 60),
-      end   : parseInt(parseInt(moment.utc(utcMs).tz(tz).endOf('day').format('x')) / 1000 / 60)
-    };
-  },
   getNextUrl: function() {
     var start = moment.utc(this.state.startMs).tz(this.state.tz);
     var end   = moment.utc(this.state.endMs).tz(this.state.tz);
@@ -187,9 +181,10 @@ var QueryCityBox = React.createClass({
              start.format('x') + '/' + end.format('x');
   },
   getTimeSeriesUrl: function(startMs) {
-    var bounds = this.getDayBounds(this.state.tz, startMs);
-    return TIMESERIES_API_URL + "/" + this.state.localityId + "?" +
-             "startMin=" + bounds.start + "&endMin=" + bounds.end;
+    var startHour = parseInt(
+      (((parseInt(moment.utc(startMs).tz(this.state.tz).startOf('day').format('x')) / 1000) / 60) / 60)
+    );
+    return TIMESERIES_API_URL + "/" + this.state.localityId + "?startHour=" + startHour;
   },
   loadTimeSeries: function(startMs, endMs) {
     toastr.options.timeOut = 10000;
