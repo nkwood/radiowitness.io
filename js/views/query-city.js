@@ -249,6 +249,8 @@ var QueryCityBox = React.createClass({
   },
   componentWillMount: function() {
     document.title = "Radio Witness - " + this.state.localityName;
+  },
+  componentDidMount: function() {
     this.loadTimeSeries(this.state.startMs, this.state.endMs);
   },
   render: function() {
