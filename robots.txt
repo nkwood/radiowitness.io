@@ -3,3 +3,6 @@ Disallow: /#/city/
 Disallow: /#/sift/
 Disallow: /#/topics/private
 Disallow: /#/bad-browser
+Allow: /#/
+Allow: /#/about
+Allow: /#/topics/public/
