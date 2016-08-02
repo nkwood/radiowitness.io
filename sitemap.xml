@@ -8,12 +8,4 @@
     <loc>https://radiowitness.io/about</loc>
     <changefreq>hourly</changefreq>
   </url>
-  <url>
-    <loc>https://radiowitness.io/city/Austin,%20TX/2</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://radiowitness.io/city/Oakland,%20CA/3</loc>
-    <changefreq>daily</changefreq>
-  </url>
 </urlset>

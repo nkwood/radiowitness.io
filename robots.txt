@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /bad-browser
+Disallow: /city/
 Disallow: /sift/
 Disallow: /topics/private
