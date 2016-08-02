@@ -2,7 +2,7 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
-var React         = require('react');
+var React = require('react');
 
 
 var AboutBox = React.createClass({
