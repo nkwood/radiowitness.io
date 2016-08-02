@@ -21,9 +21,13 @@ var ViewTopicPublic   = require('./views/view-topic-public.js');
 var CallDb   = require('./db/call-db.js');
 var TopicsDb = require('./db/topics-db.js');
 
+var BOT_REGEX = new RegExp("/bot|googlebot|crawler|spider|robot|crawling/i");
+
 
 function requireDexie(nextState, replace) {
-  if (!Modernizr.indexeddb) {
+  if (BOT_REGEX.test(navigator.userAgent)) {
+    return true;
+  } else if (!Modernizr.indexeddb) {
     replace({ pathname: "/bad-browser" });
     return false;
   } else {
