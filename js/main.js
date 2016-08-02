@@ -10,7 +10,6 @@ var IndexRoute  = require('react-router').IndexRoute;
 var hashHistory = require('react-router').hashHistory;
 
 var Navigation        = require('./views/navigation.js');
-var Login             = require('./views/login.js');
 var BadBrowser        = require('./views/bad-browser.js');
 var About             = require('./views/about.js');
 var ViewCities        = require('./views/view-cities.js');
@@ -19,9 +18,8 @@ var Sift              = require('./views/sift/sift.js');
 var ViewTopicsPrivate = require('./views/view-topics-private.js');
 var ViewTopicPublic   = require('./views/view-topic-public.js');
 
-var AuthService = require('./util/auth-service.js');
-var CallDb      = require('./db/call-db.js');
-var TopicsDb    = require('./db/topics-db.js');
+var CallDb   = require('./db/call-db.js');
+var TopicsDb = require('./db/topics-db.js');
 
 
 function requireDexie(nextState, replace) {
@@ -32,14 +30,6 @@ function requireDexie(nextState, replace) {
     CallDb.init();
     TopicsDb.init();
     return true;
-  }
-}
-
-function requireAuth(nextState, replace) {
-  if (requireDexie(nextState, replace) === true) {
-    /*if (!AuthService.loggedIn()) {
-      replace({ pathname: "/login" });
-    }*/
   }
 }
 
@@ -57,14 +47,13 @@ var App = React.createClass({
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={ViewCities} onEnter={requireAuth} />
-      <Route path="/login" component={Login} onEnter={requireDexie} />
+      <IndexRoute component={ViewCities} onEnter={requireDexie} />
       <Route path="/bad-browser" component={BadBrowser} />
       <Route path="/about" component={About} />
-      <Route path="/city/:localityName/:localityId" component={QueryCity} onEnter={requireAuth} />
-      <Route path="/sift/:localityName/:localityId/:startMs/:endMs" component={Sift} onEnter={requireAuth} />
-      <Route path="/topics/private" component={ViewTopicsPrivate} onEnter={requireAuth} />
-      <Route path="/topics/public/:topicId" component={ViewTopicPublic} onEnter={requireAuth} />
+      <Route path="/city/:localityName/:localityId" component={QueryCity} onEnter={requireDexie} />
+      <Route path="/sift/:localityName/:localityId/:startMs/:endMs" component={Sift} onEnter={requireDexie} />
+      <Route path="/topics/private" component={ViewTopicsPrivate} onEnter={requireDexie} />
+      <Route path="/topics/public/:topicId" component={ViewTopicPublic} onEnter={requireDexie} />
     </Route>
   </Router>
 ), document.getElementById("content"));
