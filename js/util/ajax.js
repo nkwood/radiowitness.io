@@ -2,8 +2,7 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
-var hashHistory = require('react-router').hashHistory;
-var Ajax        = function() { };
+var Ajax = function() { };
 
 
 Ajax.prototype.get = function(url, callback) {

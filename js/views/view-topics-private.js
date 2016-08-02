@@ -2,17 +2,17 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
-var React  = require('react');
-var Table  = require('fixed-data-table').Table;
-var Column = require('fixed-data-table').Column;
-var Cell   = require('fixed-data-table').Cell;
+var React          = require('react');
+var Table          = require('fixed-data-table').Table;
+var Column         = require('fixed-data-table').Column;
+var Cell           = require('fixed-data-table').Cell;
+var browserHistory = require('react-router').browserHistory;
 
-var Ajax          = require('../util/ajax.js');
-var TopicsDb      = require('../db/topics-db.js');
-var CallCache     = require('../cache/call-cache.js');
-var Colors        = require('../util/colors.js');
-var hashHistory   = require('react-router').hashHistory;
-var Config        = require('../config/config');
+var Ajax      = require('../util/ajax.js');
+var TopicsDb  = require('../db/topics-db.js');
+var CallCache = require('../cache/call-cache.js');
+var Colors    = require('../util/colors.js');
+var Config    = require('../config/config');
 
 var TOPIC_API_URL = Config.apiEndpoint + "/topic";
 
@@ -206,7 +206,7 @@ var ViewTopicsPrivateBox = React.createClass({
       TOPIC_API_URL,
       JSON.stringify(topicObj),
       function (topicId) {
-        hashHistory.push("/topics/public/" + topicId);
+        browserHistory.push("/topics/public/" + topicId);
       }.bind(this)
     );
   },

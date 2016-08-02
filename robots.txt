@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /bad-browser
+Disallow: /sift/
+Disallow: /topics/private

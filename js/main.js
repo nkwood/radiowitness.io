@@ -2,12 +2,12 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
-var React       = require('react');
-var ReactDOM    = require('react-dom');
-var Router      = require('react-router').Router;
-var Route       = require('react-router').Route;
-var IndexRoute  = require('react-router').IndexRoute;
-var hashHistory = require('react-router').hashHistory;
+var React          = require('react');
+var ReactDOM       = require('react-dom');
+var Router         = require('react-router').Router;
+var Route          = require('react-router').Route;
+var IndexRoute     = require('react-router').IndexRoute;
+var browserHistory = require('react-router').browserHistory;
 
 var Navigation        = require('./views/navigation.js');
 var BadBrowser        = require('./views/bad-browser.js');
@@ -49,7 +49,7 @@ var App = React.createClass({
 });
 
 ReactDOM.render((
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={ViewCities} onEnter={requireDexie} />
       <Route path="/bad-browser" component={BadBrowser} />
