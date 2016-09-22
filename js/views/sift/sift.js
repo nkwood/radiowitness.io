@@ -201,8 +201,7 @@ var SiftBox = React.createClass({
         break;
 
       case 83:
-        var win = window.open("/topics/private", '_blank');
-        win.focus();
+        this.context.router.push('/topics/private');
         break;
 
       case 191:
@@ -213,6 +212,9 @@ var SiftBox = React.createClass({
         break;
     }
     return true;
+  },
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
   },
   getInitialState: function() {
     this.isPromptActive = false;

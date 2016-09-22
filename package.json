@@ -1,24 +1,24 @@
 {
   "name": "radiowitness.io",
+  "author": "Radio Witness Project",
+  "description": "Radio Witness Project web app, https://radiowitness.io",
+  "license": "GPL-3.0",
   "version": "0.0.1",
-  "description": "radiowitness.io",
   "repository": {
     "type": "git",
     "url": "https://github.com/radiowitness/radiowitness.io"
   },
   "scripts": {
-    "build": "NODE_ENV=production webpack --config webpack.production.config.js -p",
+    "bundle": "NODE_ENV=production webpack --config webpack.production.config.js -p",
     "dev": "NODE_ENV=dev webpack-dev-server --hot --progress --colors"
   },
-  "author": "An Honest Effort LLC",
-  "license": "GPLv3",
   "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-router": "^2.8.1",
     "dexie": "^1.4.1",
-    "fixed-data-table": "^0.6.2",
-    "randomcolor": "^0.4.4",
-    "react": "^15.2.1",
-    "react-dom": "^15.2.1",
-    "react-router": "^2.6.0"
+    "fixed-data-table": "^0.6.3",
+    "randomcolor": "^0.4.4"
   },
   "devDependencies": {
     "babel-core": "^6.11.4",

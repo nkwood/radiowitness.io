@@ -4,23 +4,25 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var BUILD_DIR   = path.resolve(__dirname, '');
 var APP_DIR     = path.resolve(__dirname, 'js');
-var STYLES_DIR  = path.resolve(__dirname, 'css');
+var STYLE_DIR  = path.resolve(__dirname, 'css');
+
 
 var definePlugin = new webpack.DefinePlugin({
-  __DEV__: false
+  __DEV__ : false
 });
 
+
 var config = {
-  entry: [
-    APP_DIR    + '/main.js',
-    STYLES_DIR + '/bundle.less'
+  entry : [
+    APP_DIR   + '/main.js',
+    STYLE_DIR + '/bundle.less'
   ],
-  output: {
-    path       : BUILD_DIR,
-    filename   : 'bundle.js'
+  output : {
+    path     : BUILD_DIR,
+    filename : 'bundle.js'
   },
-  module: {
-    loaders: [
+  module : {
+    loaders : [
       {
         test    : /\.js?/,
         include : APP_DIR,
@@ -28,20 +30,21 @@ var config = {
       },
       {
         test    : /\.less$/,
-        include : STYLES_DIR,
+        include : STYLE_DIR,
         loader  : ExtractTextPlugin.extract('css!less') 
       },
       {
         test    : /\.css$/,
-        include : STYLES_DIR,
+        include : STYLE_DIR,
         loaders : ['style!css']
       }
     ]
   },
-  plugins: [
+  plugins : [
     new ExtractTextPlugin("bundle.css"),
     definePlugin
   ]
 };
+
 
 module.exports = config;
