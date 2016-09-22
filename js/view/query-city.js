@@ -8,7 +8,7 @@ var Link   = require('react-router').Link;
 
 var Ajax    = require('../util/ajax.js');
 var TzCache = require('../cache/tz-cache.js');
-var Config  = require('../config/config');
+var Config  = require('../config.js');
 
 var TIMESERIES_API_URL = Config.apiEndpoint + "/timeseries";
 
@@ -116,35 +116,24 @@ var TimeSelectBox = React.createClass({
   }
 });
 
-var TimeSeries = React.createClass({
-  getId: function() {
-    return "timeSeriesChart" + this.props.uniq;
-  },
+var TimeSeriesChart = React.createClass({
   handlePlotTimeSeries: function() {
+    var options = {
+        title: this.props.title,
+        target: this.chart,
+        top: 16, right: 0, left: 60,
+        full_width: true, height: this.props.height,
+        y_label: 'call count'
+    };
+
     if (this.props.series.length > 0) {
-      MG.data_graphic({
-        title: this.props.title,
-        data: this.props.series,
-        target: "#" + this.getId(),
-        full_width: true,
-        top: 16,
-        left: 60,
-        height: this.props.height,
-        y_label: "call count"
-      });
+      options.data = this.props.series;
     } else {
-      MG.data_graphic({
-        title: this.props.title,
-        chart_type: "missing-data",
-        missing_text: " ",
-        target: "#" + this.getId(),
-        full_width: true,
-        top: 16,
-        left: 60,
-        height: this.props.height,
-        y_label: "call count"
-      });
+      options.chart_type   = 'missing-data';
+      options.missing_text = 'Loading call events...';
     }
+
+    MG.data_graphic(options);
   },
   componentDidMount: function() {
     this.handlePlotTimeSeries();
@@ -152,19 +141,14 @@ var TimeSeries = React.createClass({
   componentDidUpdate: function() {
     this.handlePlotTimeSeries();
   },
-  componentWillUnmount: function() {
-    $("#" + this.getId()).html("");
-  },
   render: function() {
     return (
-      <div className="timeSeriesChart">
-        <div id={this.getId()}></div>
-      </div>
+      <div className="timeSeriesChart" ref={(ref) => this.chart = ref}></div>
     );
   }
 });
 
-var QueryCityBox = React.createClass({
+var QueryCityView = React.createClass({
   copyDate: function(source, destination) {
     destination.year(source.year());
     destination.dayOfYear(source.dayOfYear());
@@ -248,7 +232,7 @@ var QueryCityBox = React.createClass({
       subSeries    : []
     };
   },
-  componentDidMount: function() {
+  componentWillMount: function() {
     this.loadTimeSeries(this.state.startMs, this.state.endMs);
   },
   render: function() {
@@ -256,42 +240,47 @@ var QueryCityBox = React.createClass({
     var end            = moment.utc(this.state.endMs).tz(this.state.tz);
     var seriesTitle    = "Calls recorded " + start.format("dddd, MMMM Do");
     var subSeriesTitle = "Calls recorded between " + start.format("h:mm A") + " & " + end.format("h:mm A");
+    var btnStyle       = (this.state.series.length <= 0) ? 'btn-default' : 'btn-primary';
 
     return (
-      <div>
+      <div className="queryCityView">
         <Helmet title={this.state.localityName} />
-        <h1>{this.state.localityName}</h1>
-        <div className="queryCityBox center-block">
-          <div className="queryFormHeadings row">
-            <div className="col-sm-4"><span>Date</span></div>
-            <div className="col-sm-3"><span>From</span></div>
-            <div className="col-sm-3"><span>To</span></div>
-            <div className="col-sm-2"></div>
-          </div>
-
+        <div className="pageHeading">
+          <h1>{this.state.localityName}</h1>
+        </div>
+        <div className="pageContent">
           <div className="queryForm row">
-            <div className="col-sm-4">
+            <div className="col-xs-12 col-md-6">
+              <h3 className="row">Chose Date</h3>
               <DateSelectBox uniq="date" tz={this.state.tz} timeMs={this.state.startMs} callback={this.onQueryChanged} />
             </div>
-            <div className="col-sm-3">
+            <div className="col-xs-6 col-md-3">
+              <div className="row">
+                <h3 className="col-xs-9">Start Time</h3>
+                <div className="col-xs-3"></div>
+              </div>
               <TimeSelectBox uniq="from" tz={this.state.tz} timeMs={this.state.startMs} callback={this.onQueryChanged} />
             </div>
-            <div className="col-sm-3">
+            <div className="col-xs-6 col-md-3">
+              <div className="row">
+                <h3 className="col-xs-9">End Time</h3>
+                <div className="col-xs-3"></div>
+              </div>
               <TimeSelectBox uniq="to" tz={this.state.tz} timeMs={this.state.endMs} callback={this.onQueryChanged} />
-            </div>
-            <div className="col-sm-2">
-              <Link to={this.getNextUrl()} className="btn btn-primary fullWidth">NEXT</Link>
             </div>
           </div>
 
           <div className="row">
-            <div className="col-sm-12">
-              <TimeSeries uniq="timeSpan" title={subSeriesTitle} series={this.state.subSeries} height={130} />
+            <div className="queryTimeSeries col-xs-10">
+              <div className="col-xs-12">
+                <TimeSeriesChart uniq="timeSpan" title={subSeriesTitle} series={this.state.subSeries} height={130} />
+              </div>
+              <div className="col-xs-12">
+                <TimeSeriesChart uniq="day" title={seriesTitle} series={this.state.series} height={130} />
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-12">
-              <TimeSeries uniq="day" title={seriesTitle} series={this.state.series} height={130} />
+            <div className="listenButton col-xs-2">
+              <Link to={this.getNextUrl()} className={"btn " + btnStyle} >LISTEN</Link>
             </div>
           </div>
         </div>
@@ -301,4 +290,4 @@ var QueryCityBox = React.createClass({
 });
 
 
-module.exports = QueryCityBox;
+module.exports = QueryCityView;

@@ -9,8 +9,8 @@
     "url": "https://github.com/radiowitness/radiowitness.io"
   },
   "scripts": {
-    "bundle": "NODE_ENV=production webpack --config webpack.production.config.js -p",
-    "dev": "NODE_ENV=dev webpack-dev-server --hot --progress --colors"
+    "bundle": "NODE_ENV=production webpack --config webpack.config.js -p",
+    "dev": "NODE_ENV=dev webpack-dev-server --config webpack.config.dev.js --hot --progress --colors"
   },
   "dependencies": {
     "react": "^15.3.2",

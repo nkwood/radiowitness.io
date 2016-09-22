@@ -9,17 +9,13 @@ var Route          = require('react-router').Route;
 var IndexRoute     = require('react-router').IndexRoute;
 var browserHistory = require('react-router').browserHistory;
 
-var Navigation        = require('./views/navigation.js');
-var BadBrowser        = require('./views/bad-browser.js');
-var About             = require('./views/about.js');
-var ViewCities        = require('./views/view-cities.js');
-var QueryCity         = require('./views/query-city.js');
-var Sift              = require('./views/sift/sift.js');
-var ViewTopicsPrivate = require('./views/view-topics-private.js');
-var ViewTopicPublic   = require('./views/view-topic-public.js');
-
-var CallDb   = require('./db/call-db.js');
-var TopicsDb = require('./db/topics-db.js');
+var Navigation = require('./view/navigation.js');
+var BadBrowser = require('./view/bad-browser.js');
+var About      = require('./view/about.js');
+var Cities     = require('./view/cities.js');
+var QueryCity  = require('./view/query-city.js');
+var Sift       = require('./view/sift/sift.js');
+var CallDb     = require('./db/call-db.js');
 
 var BOT_REGEX = new RegExp("/bot|googlebot|crawler|spider|robot|crawling/i");
 
@@ -28,11 +24,10 @@ function requireDexie(nextState, replace) {
   if (BOT_REGEX.test(navigator.userAgent)) {
     return true;
   } else if (!Modernizr.indexeddb) {
-    replace({ pathname: "/bad-browser" });
+    replace({ pathname: '/bad-browser' });
     return false;
   } else {
     CallDb.init();
-    TopicsDb.init();
     return true;
   }
 }
@@ -40,10 +35,16 @@ function requireDexie(nextState, replace) {
 var App = React.createClass({
   render: function() {
     return (
-     <div>
-       <Navigation />
-       {this.props.children}
-     </div>
+      <div className="app">
+        <div className="row">
+          <div className="col-xs-12 col-md-1">
+            <Navigation/>
+          </div>
+          <div className="col-xs-12 col-md-11">
+            {this.props.children}
+          </div>
+        </div>
+      </div>
     );
   }
 });
@@ -51,13 +52,11 @@ var App = React.createClass({
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={ViewCities} onEnter={requireDexie} />
-      <Route path="/bad-browser" component={BadBrowser} />
+      <IndexRoute component={Cities} onEnter={requireDexie} />
       <Route path="/about" component={About} />
       <Route path="/city/:localityName/:localityId" component={QueryCity} onEnter={requireDexie} />
       <Route path="/sift/:localityName/:localityId/:startMs/:endMs" component={Sift} onEnter={requireDexie} />
-      <Route path="/topics/private" component={ViewTopicsPrivate} onEnter={requireDexie} />
-      <Route path="/topics/public/:topicId" component={ViewTopicPublic} onEnter={requireDexie} />
+      <Route path="/bad-browser" component={BadBrowser} />
     </Route>
   </Router>
-), document.getElementById("content"));
+), document.getElementById('root'));

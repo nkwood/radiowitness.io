@@ -3,7 +3,7 @@
  */
 
 var Ajax         = require('../util/ajax.js');
-var Config       = require('../config/config');
+var Config       = require('../config.js');
 var CALL_API_URL = Config.apiEndpoint + "/call";
 var CallCache    = function() { };
 

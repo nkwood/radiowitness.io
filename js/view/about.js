@@ -9,10 +9,12 @@ var Helmet = require('react-helmet');
 var AboutBox = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="aboutView">
         <Helmet title="About" />
-        <h1>About</h1>
-        <div className="aboutBox center-block">
+        <div className="pageHeading">
+          <h1>About</h1>
+        </div>
+        <div className="pageContent">
           <p className="aboutText lead">
             The Radio Witness Project began in 2015 with the goal of making police
             radio broadcasts more accessible to journalists. Non-commercial use of this

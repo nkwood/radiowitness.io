@@ -6,13 +6,15 @@ var React  = require('react');
 var Helmet = require('react-helmet');
 
 
-var BadBrowserBox = React.createClass({
+var BadBrowserView = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="badBrowserView">
         <Helmet title="Bad Browser :(" />
-        <h1>Bad Browser :(</h1>
-        <div className="badBrowserBox center-block">
+        <div className="pageHeading">
+          <h1>Bad Browser :(</h1>
+        </div>
+        <div className="pageContent">
           <p className="badBrowserText lead">
             This browser does not support the IndexedDB Web Standard, please switch to
             Google Chrome, Firefox, or Opera to continue. Pretty much anything other
@@ -25,4 +27,4 @@ var BadBrowserBox = React.createClass({
 });
 
 
-module.exports = BadBrowserBox;
+module.exports = BadBrowserView;
