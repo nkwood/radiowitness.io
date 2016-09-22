@@ -2,12 +2,13 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
-var React = require('react');
-var Link  = require('react-router').Link;
+var React  = require('react');
+var Helmet = require('react-helmet');
+var Link   = require('react-router').Link;
 
-var Ajax          = require('../util/ajax.js');
-var TzCache       = require('../cache/tz-cache.js');
-var Config        = require('../config/config');
+var Ajax    = require('../util/ajax.js');
+var TzCache = require('../cache/tz-cache.js');
+var Config  = require('../config/config');
 
 var TIMESERIES_API_URL = Config.apiEndpoint + "/timeseries";
 
@@ -247,9 +248,6 @@ var QueryCityBox = React.createClass({
       subSeries    : []
     };
   },
-  componentWillMount: function() {
-    document.title = "Radio Witness - " + this.state.localityName;
-  },
   componentDidMount: function() {
     this.loadTimeSeries(this.state.startMs, this.state.endMs);
   },
@@ -261,6 +259,7 @@ var QueryCityBox = React.createClass({
 
     return (
       <div>
+        <Helmet title={this.state.localityName} />
         <h1>{this.state.localityName}</h1>
         <div className="queryCityBox center-block">
           <div className="queryFormHeadings row">

@@ -2,12 +2,13 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
-var React = require('react');
-var Link  = require('react-router').Link;
+var React  = require('react');
+var Link   = require('react-router').Link;
+var Helmet = require('react-helmet');
 
-var Ajax          = require('../util/ajax.js');
-var TzCache       = require('../cache/tz-cache.js');
-var Config        = require('../config/config');
+var Ajax    = require('../util/ajax.js');
+var TzCache = require('../cache/tz-cache.js');
+var Config  = require('../config/config');
 
 var LOCALITY_API_URL    = Config.apiEndpoint + "/locality";
 var REFRESH_INTERVAL_MS = 2000;
@@ -131,7 +132,6 @@ var CitiesBox = React.createClass({
     };
   },
   componentWillMount: function() {
-    document.title = "Radio Witness - cities";
     toastr.options.timeOut = 10000;
     toastr.success("Loading available cities...");
     this.loadLocalities();
@@ -146,6 +146,7 @@ var CitiesBox = React.createClass({
   render: function() {
     return (
       <div>
+        <Helmet title="Citites" />
         <h1>Cities</h1>
         <div className="citiesBox col-xs-10 col-xs-offset-1">
           <CityList localities={this.state.localities} />

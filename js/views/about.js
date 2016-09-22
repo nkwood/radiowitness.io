@@ -2,16 +2,15 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
-var React = require('react');
+var React  = require('react');
+var Helmet = require('react-helmet');
 
 
 var AboutBox = React.createClass({
-  componentWillMount: function() {
-    document.title = "Radio Witness - about";
-  },
   render: function() {
     return (
       <div>
+        <Helmet title="About" />
         <h1>About</h1>
         <div className="aboutBox center-block">
           <p className="aboutText lead">

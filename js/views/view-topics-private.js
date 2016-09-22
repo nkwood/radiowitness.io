@@ -3,6 +3,7 @@
  */
 
 var React          = require('react');
+var Helmet         = require('react-helmet');
 var Table          = require('fixed-data-table').Table;
 var Column         = require('fixed-data-table').Column;
 var Cell           = require('fixed-data-table').Cell;
@@ -218,12 +219,12 @@ var ViewTopicsPrivateBox = React.createClass({
     };
   },
   componentWillMount: function() {
-    document.title = "Radio Witness - private topics";
     this.loadTopics();
   },
   render: function() {
     return (
       <div>
+        <Helmet title="Private Topics" />
         <h1>Private Topics</h1>
         <div className="viewTopicsPrivateBox center-block">
           <TopicSelect

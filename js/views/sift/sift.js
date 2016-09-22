@@ -2,20 +2,21 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
-var React = require('react');
-var Link  = require('react-router').Link;
+var React  = require('react');
+var Helmet = require('react-helmet');
+var Link   = require('react-router').Link;
 
 var SiftIntroModal       = require('./sift-intro.js');
 var SiftCallPlayback     = require('./sift-audio.js');
 var SiftTopicCreateModal = require('./sift-topic-create.js');
 var SiftTopicLinkModal   = require('./sift-topic-link.js');
 
-var Ajax          = require('../../util/ajax.js');
-var CallDb        = require('../../db/call-db.js');
-var TopicsDb      = require('../../db/topics-db.js');
-var TzCache       = require('../../cache/tz-cache.js');
-var Colors        = require('../../util/colors.js');
-var Config        = require('../../config/config.js');
+var Ajax     = require('../../util/ajax.js');
+var CallDb   = require('../../db/call-db.js');
+var TopicsDb = require('../../db/topics-db.js');
+var TzCache  = require('../../cache/tz-cache.js');
+var Colors   = require('../../util/colors.js');
+var Config   = require('../../config/config.js');
 
 var CALLS_API_URL = Config.apiEndpoint + "/calls";
 
@@ -230,7 +231,6 @@ var SiftBox = React.createClass({
     };
   },
   componentWillMount: function() {
-    document.title = "Radio Witness - " + this.state.localityName;
     toastr.options.timeOut = 10000;
     toastr.success("Loading calls...");
     this.loadCalls();
@@ -241,19 +241,13 @@ var SiftBox = React.createClass({
   componentWillUnmount: function() {
     document.removeEventListener("keydown", this.handleKey);
   },
-  componentDidUpdate: function(prevProps, prevState) {
-    var call = this.state.calls[this.state.selected];
-    if (call !== undefined) {
-      document.title = "Radio Witness - " + this.state.localityName + " - " +
-        moment.utc(call.startTime).tz(this.state.tz).format("h:mm:ss A");
-    }
-  },
   render: function() {
     var start = moment.utc(this.state.startMs).tz(this.state.tz);
     var end   = moment.utc(this.state.endMs).tz(this.state.tz);
 
     return (
       <div>
+        <Helmet title={this.state.localityName + " Calls"} />
         <h1 className="siftBoxHeading">
           {this.state.localityName}
           <span className="timeSpanSpan">

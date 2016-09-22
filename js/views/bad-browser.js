@@ -2,16 +2,15 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
-var React         = require('react');
+var React  = require('react');
+var Helmet = require('react-helmet');
 
 
 var BadBrowserBox = React.createClass({
-  componentWillMount: function() {
-    document.title = "Radio Witness - bad browser :(";
-  },
   render: function() {
     return (
       <div>
+        <Helmet title="Bad Browser :(" />
         <h1>Bad Browser :(</h1>
         <div className="badBrowserBox center-block">
           <p className="badBrowserText lead">

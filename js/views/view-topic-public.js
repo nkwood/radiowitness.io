@@ -3,6 +3,7 @@
  */
 
 var React  = require('react');
+var Helmet = require('react-helmet');
 var Table  = require('fixed-data-table').Table;
 var Column = require('fixed-data-table').Column;
 var Cell   = require('fixed-data-table').Cell;
@@ -156,15 +157,14 @@ var PublicTopicBox = React.createClass({
     };
   },
   componentWillMount: function() {
-    document.title = "Radio Witness - public topic";
     toastr.options.timeOut = 10000;
     toastr.success("Loading topic links...");
     this.loadTopic(this.props.params.topicId);
   },
   render: function() {
-    document.title = "Radio Witness - " + this.state.name;
     return (
       <div>
+        <Helmet title={"Topic: " + this.state.name} />
         <h1>Public Topic</h1>
         <div className="publicTopicBox center-block">
           <PublicTopicHeading name={this.state.name} />
