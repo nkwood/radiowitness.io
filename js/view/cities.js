@@ -2,9 +2,10 @@
  * Copyright (C) 2016 An Honest Effort LLC.
  */
 
-var React  = require('react');
-var Link   = require('react-router').Link;
-var Helmet = require('react-helmet');
+var React     = require('react');
+var Link      = require('react-router').Link;
+var Helmet    = require('react-helmet');
+var localeStr = require('number-to-locale-string');
 
 var Ajax    = require('../util/ajax.js');
 var TzCache = require('../cache/tz-cache.js');
@@ -12,6 +13,11 @@ var Config  = require('../config.js');
 
 var LOCALITY_API_URL    = Config.apiEndpoint + "/locality";
 var REFRESH_INTERVAL_MS = 2000;
+
+
+function toLocaleString(num) {
+  return new Number(num).toLocaleString();
+}
 
 
 var CityListItem = React.createClass({
@@ -31,7 +37,7 @@ var CityListItem = React.createClass({
             </Link>
           </div>
           <div className="col-xs-6 col-md-4">
-            <span className="h2">{this.props.locality.callCount.toLocaleString('en-US')}</span>
+            <span className="h2">{toLocaleString(this.props.locality.callCount)}</span>
           </div>
         </div>
       </div>
@@ -62,7 +68,7 @@ var CitiesCallSum = React.createClass({
     var sum = this.props.localities.reduce(function(sum, locality) {
       return sum + locality.callCount;
     }, 0);
-    var text = (sum <= 0) ? "" : sum.toLocaleString('en-US') + " calls";
+    var text = (sum <= 0) ? "" : toLocaleString(sum) + " calls";
 
     return (
       <div className="citiesCallSum">
