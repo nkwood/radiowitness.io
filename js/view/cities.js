@@ -31,7 +31,7 @@ var CityListItem = React.createClass({
             </Link>
           </div>
           <div className="col-xs-6 col-md-4">
-            <span className="h2">{this.props.locality.callCount.toLocaleString()}</span>
+            <span className="h2">{this.props.locality.callCount.toLocaleString('en-US')}</span>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@ var CitiesCallSum = React.createClass({
     var sum = this.props.localities.reduce(function(sum, locality) {
       return sum + locality.callCount;
     }, 0);
-    var text = (sum <= 0) ? "" : sum.toLocaleString() + " calls";
+    var text = (sum <= 0) ? "" : sum.toLocaleString('en-US') + " calls";
 
     return (
       <div className="citiesCallSum">
