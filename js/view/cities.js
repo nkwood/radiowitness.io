@@ -23,15 +23,15 @@ var CityListItem = React.createClass({
       <div className={"cityListItem " + ((this.props.isLast) ? " cityListItemLast" : "")}>
         <div className="row">
           <div className="cityListItemPlus col-xs-1 col-md-2">
-            <h2>+</h2>
+            <span className="h2">+</span>
           </div>
           <div className="col-xs-5 col-md-6">
             <Link to={this.getCityUrl()}>
-              <h2>{this.props.locality.name}</h2>
+              <span className="h2">{this.props.locality.name}</span>
             </Link>
           </div>
           <div className="col-xs-6 col-md-4">
-            <h2>{this.props.locality.callCount.toLocaleString()}</h2>
+            <span className="h2">{this.props.locality.callCount.toLocaleString()}</span>
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@ var CitiesCallSum = React.createClass({
       <div className="citiesCallSum">
         <div className="row">
           <div className="col-xs-offset-6 col-xs-6 col-md-offset-8 col-md-4">
-            <h2>{text}</h2>
+            <span className="h2">{text}</span>
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@ var CitiesView = React.createClass({
       <div className="citiesView">
         <Helmet title="Citites" />
         <div className="pageHeading">
-          <h1>Cities</h1>
+          <span className="h1">Cities</span>
         </div>
         <div className="pageContent">
           <CityList localities={this.state.localities} />

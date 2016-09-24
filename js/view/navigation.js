@@ -13,16 +13,17 @@ var Navigation = React.createClass({
     return (
       <div className="navigation">
         <Helmet titleTemplate="%s | RadioWitness.io" meta={metatags} />
-        <div className="col-xs-2 col-md-12">
-          <h3><Link to="/">HOME</Link></h3>
-        </div>
-        <div className="col-xs-2 col-md-12">
-          <h3><Link to="/about">ABOUT</Link></h3>
-        </div>
-        <div className="col-xs-2 col-md-12">
-          <h3><a href="mailto:info@radiowitness.io">EMAIL</a></h3>
-        </div>
-        <div className="col-xs-6 col-md-0"></div>
+        <span>
+          <span className="h3 col-md-12">
+            <Link to="/">HOME</Link>
+          </span>
+          <span className="h3 col-md-12">
+            <Link to="/about">ABOUT</Link>
+          </span>
+          <span className="h3 col-md-12">
+            <a href="mailto:info@radiowitness.io">EMAIL</a>
+          </span>
+        </span>
       </div>
     );
   }

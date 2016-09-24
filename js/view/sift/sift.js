@@ -202,8 +202,8 @@ var SiftView = React.createClass({
       <div className="siftView">
         <Helmet title={this.state.localityName + " Calls"} />
         <div className="pageHeading">
-          <h1>{this.state.localityName}</h1>
-          <span className="timeSpan">{start.format("dddd, MMMM Do")}, {start.format("h:mm A")} to {end.format("h:mm A")}</span>
+          <p className="h1">{this.state.localityName}</p>
+          <p className="h3">{start.format("dddd, MMMM Do")}, {start.format("h:mm A")} to {end.format("h:mm A")}</p>
         </div>
         <div className="pageContent">
           <SiftIntroModal ref={(r) => this.intro = r} />

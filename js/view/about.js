@@ -12,7 +12,7 @@ var AboutBox = React.createClass({
       <div className="aboutView">
         <Helmet title="About" />
         <div className="pageHeading">
-          <h1>About</h1>
+          <span className="h1">About</span>
         </div>
         <div className="pageContent">
           <p className="aboutText lead">

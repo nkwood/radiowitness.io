@@ -70,6 +70,7 @@ var DateSelectBox = React.createClass({
   render: function() {
     return (
       <div className="dateSelectBox">
+        <span className="h4 row">Chose Date</span>
         <div id="datePickerDate"></div>
       </div>
     );
@@ -110,6 +111,7 @@ var TimeSelectBox = React.createClass({
   render: function() {
     return (
       <div className="timeSelectBox">
+        <span className="h4 row">{this.props.title}</span>
         <div id={this.state.id}></div>
       </div>
     );
@@ -246,28 +248,26 @@ var QueryCityView = React.createClass({
       <div className="queryCityView">
         <Helmet title={this.state.localityName} />
         <div className="pageHeading">
-          <h1>{this.state.localityName}</h1>
+          <span className="h1">{this.state.localityName}</span>
         </div>
         <div className="pageContent">
           <div className="queryForm row">
-            <div className="col-xs-12 col-md-6">
-              <h3 className="row">Chose Date</h3>
-              <DateSelectBox uniq="date" tz={this.state.tz} timeMs={this.state.startMs} callback={this.onQueryChanged} />
+            <div className="col-xs-offset-1 col-md-offset-0"></div>
+            <div className="col-xs-10 col-md-6">
+              <DateSelectBox uniq="date" tz={this.state.tz}
+                timeMs={this.state.startMs} callback={this.onQueryChanged} />
             </div>
-            <div className="col-xs-6 col-md-3">
-              <div className="row">
-                <h3 className="col-xs-9">Start Time</h3>
-                <div className="col-xs-3"></div>
-              </div>
-              <TimeSelectBox uniq="from" tz={this.state.tz} timeMs={this.state.startMs} callback={this.onQueryChanged} />
+            <div className="col-xs-offset-1 col-md-offset-0"></div>
+            <div className="col-xs-offset-1 col-md-offset-0"></div>
+            <div className="col-xs-5 col-md-3">
+              <TimeSelectBox uniq="from" title="Start Time"
+                tz={this.state.tz} timeMs={this.state.startMs} callback={this.onQueryChanged} />
             </div>
-            <div className="col-xs-6 col-md-3">
-              <div className="row">
-                <h3 className="col-xs-9">End Time</h3>
-                <div className="col-xs-3"></div>
-              </div>
-              <TimeSelectBox uniq="to" tz={this.state.tz} timeMs={this.state.endMs} callback={this.onQueryChanged} />
+            <div className="col-xs-5 col-md-3">
+              <TimeSelectBox uniq="to" title="End Time"
+                tz={this.state.tz} timeMs={this.state.endMs} callback={this.onQueryChanged} />
             </div>
+            <div className="col-xs-offset-1 col-md-offset-0"></div>
           </div>
 
           <div className="row">

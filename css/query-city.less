@@ -1,18 +1,29 @@
 @import 'base';
 
 
+.queryCityView .pageContent {
+  padding-top: 0px;
+}
+
 .queryCityView .queryForm > * {
   display: inline-block;
   vertical-align: middle;
   float: none;
   text-align: center;
 }
-
-.queryCityView .queryForm h3 {
+.queryCityView .queryForm .h4 {
   font-weight: bold;
   text-decoration: underline;
 }
-
+.dateSelectBox > div, .timeSelectBox > div {
+  font-size: 2em;
+}
+.timeSelectBox {
+  padding: 24px;
+  @media (min-width: @screen-md-min) {
+    padding: 0px;
+  }
+}
 .queryCityView .queryTimeSeries {
   padding-left: 0px;
   padding-bottom: 0px;
@@ -20,6 +31,7 @@
 .queryCityView .queryTimeSeries > div {
   padding-right: 0px;
 }
+
 
 .queryCityView .listenButton {
   margin-top: 100px;
