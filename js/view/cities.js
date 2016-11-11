@@ -115,7 +115,7 @@ var CitiesView = React.createClass({
   render: function() {
     return (
       <div className="citiesView">
-        <Helmet title="Citites" />
+        <Helmet title="Cities" />
         <div className="pageHeading">
           <span className="h1">Cities</span>
         </div>
